@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Worland Dog Laws — Ordinance Text</title>
+<meta name="description" content="Full text of every City of Worland, Wyoming ordinance section that applies to dogs.">
+<meta name="robots" content="index,follow">
+<style>
+:root{
+  --bg:#fbfaf7; --panel:#ffffff; --ink:#1c1b19; --ink-soft:#4a4742;
+  --rule:#e2ded5; --rule-strong:#c9c3b6; --accent:#7c4a1e; --accent-soft:#f3ece2;
+  --link:#8a4b12; --flag:#8c2f2f; --flag-soft:#faeceb; --ok:#2f6b46; --ok-soft:#eaf3ed;
+  --max:74rem;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#16150f; --panel:#1e1d16; --ink:#eeeae0; --ink-soft:#b6b0a2;
+    --rule:#33312a; --rule-strong:#4a473d; --accent:#d69a5f; --accent-soft:#2a251c;
+    --link:#e0a86a; --flag:#e08b84; --flag-soft:#33201f; --ok:#8fc9a4; --ok-soft:#1d2a22;
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font:400 1.0625rem/1.65 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+}
+.wrap{max-width:var(--max); margin:0 auto; padding:0 1.25rem}
+a{color:var(--link)}
+a:hover{text-decoration:none}
+
+/* ---- masthead + nav ---- */
+.masthead{border-bottom:1px solid var(--rule); background:var(--panel)}
+.masthead .wrap{padding-top:1.5rem; padding-bottom:1.1rem}
+.eyebrow{
+  font:600 .74rem/1.2 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  letter-spacing:.16em; text-transform:uppercase; color:var(--accent); margin:0 0 .5rem
+}
+h1{font-size:clamp(1.65rem,4.4vw,2.5rem); line-height:1.15; margin:0 0 .5rem; letter-spacing:-.01em}
+.standfirst{margin:0; color:var(--ink-soft); font-size:1.06rem; max-width:60ch}
+nav.pages{border-bottom:1px solid var(--rule); background:var(--bg); position:sticky; top:0; z-index:20}
+nav.pages .wrap{display:flex; flex-wrap:wrap; gap:.35rem; padding-top:.5rem; padding-bottom:.5rem; align-items:center}
+nav.pages a{
+  font:600 .9rem/1 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  text-decoration:none; color:var(--ink-soft); padding:.55rem .8rem; border-radius:.4rem
+}
+nav.pages a:hover{background:var(--accent-soft); color:var(--ink)}
+nav.pages a[aria-current="page"]{background:var(--accent); color:#fff}
+@media (prefers-color-scheme:dark){nav.pages a[aria-current="page"]{color:#16150f}}
+.spacer{flex:1 1 auto}
+button.pdf{
+  font:600 .9rem/1 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  cursor:pointer; border:1px solid var(--rule-strong); background:var(--panel); color:var(--ink);
+  padding:.55rem .85rem; border-radius:.4rem
+}
+button.pdf:hover{background:var(--accent-soft)}
+
+main{padding:2rem 0 4rem}
+h2{
+  font-size:clamp(1.25rem,3vw,1.6rem); line-height:1.2; margin:2.6rem 0 .9rem;
+  padding-bottom:.45rem; border-bottom:2px solid var(--rule-strong); letter-spacing:-.01em
+}
+h2:first-child{margin-top:0}
+h3{font-size:1.12rem; margin:1.8rem 0 .5rem; line-height:1.3}
+p{margin:0 0 .9rem}
+.lede{font-size:1.1rem; color:var(--ink-soft)}
+
+/* ---- FAQ ---- */
+.faq{border:1px solid var(--rule); border-radius:.6rem; background:var(--panel); overflow:hidden; margin:0 0 1rem}
+.faq summary{
+  cursor:pointer; padding:1rem 1.1rem; font-weight:600; font-size:1.08rem;
+  list-style:none; display:flex; gap:.75rem; align-items:baseline
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::before{content:"+"; color:var(--accent); font-weight:700; flex:0 0 auto}
+.faq[open] summary::before{content:"–"}
+.faq summary:hover{background:var(--accent-soft)}
+.faq .answer{padding:0 1.1rem 1.1rem 2.6rem; border-top:1px solid var(--rule)}
+.faq .answer p:first-child{margin-top:.9rem}
+.cites{
+  margin:.6rem 0 0; padding:.6rem .8rem; background:var(--accent-soft); border-radius:.4rem;
+  font:400 .95rem/1.5 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+.cites strong{font-weight:600}
+
+/* ---- index list ---- */
+.group{margin:0 0 1.6rem}
+.group > h3{margin-top:1.4rem}
+ul.sections{list-style:none; margin:0; padding:0; border-top:1px solid var(--rule)}
+ul.sections li{border-bottom:1px solid var(--rule)}
+ul.sections a.sec{
+  display:flex; gap:.9rem; align-items:baseline; text-decoration:none; color:inherit;
+  padding:.7rem .55rem
+}
+ul.sections a.sec:hover{background:var(--accent-soft)}
+ul.sections .num{
+  flex:0 0 6.5rem; font:600 .92rem/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  color:var(--accent)
+}
+ul.sections .ttl{flex:1 1 auto}
+ul.sections .ttl small{display:block; color:var(--ink-soft); font-size:.9rem; font-family:ui-sans-serif,system-ui,sans-serif}
+li.repealed a.sec{opacity:.62}
+li.repealed .ttl small{color:var(--flag)}
+
+/* ---- ordinance text ---- */
+article.sec{
+  border:1px solid var(--rule); border-radius:.6rem; background:var(--panel);
+  padding:1.2rem 1.3rem; margin:0 0 1.1rem
+}
+article.sec:target{border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-soft)}
+article.sec h3{margin-top:0; font-size:1.16rem}
+article.sec h3 .n{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; color:var(--accent)}
+.sub{margin:0 0 .8rem 0; padding:0 0 0 1.6rem}
+.sub > li{margin:0 0 .7rem}
+.hist{
+  margin:.9rem 0 0; padding-top:.7rem; border-top:1px solid var(--rule);
+  font:400 .88rem/1.5 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif; color:var(--ink-soft)
+}
+.hist a{color:var(--link)}
+.backlink{font:600 .85rem/1 ui-sans-serif,system-ui,sans-serif}
+
+/* ---- audit findings ---- */
+.finding{border:1px solid var(--rule); border-left:4px solid var(--flag); border-radius:.5rem;
+  background:var(--panel); padding:1rem 1.15rem; margin:0 0 1rem}
+.finding.usability{border-left-color:var(--accent)}
+.finding h3{margin:0 0 .5rem; font-size:1.08rem; display:flex; gap:.6rem; align-items:baseline}
+.finding h3 .tag{
+  flex:0 0 auto; font:700 .7rem/1.6 ui-sans-serif,system-ui,sans-serif; letter-spacing:.08em;
+  background:var(--flag-soft); color:var(--flag); padding:0 .5rem; border-radius:.25rem
+}
+.finding.usability h3 .tag{background:var(--accent-soft); color:var(--accent)}
+.finding p:last-child{margin-bottom:0}
+.finding .evidence{
+  font:400 .93rem/1.55 ui-sans-serif,system-ui,sans-serif; color:var(--ink-soft);
+  border-left:2px solid var(--rule-strong); padding-left:.8rem; margin:.7rem 0 0
+}
+.rec{border:1px solid var(--rule); border-left:4px solid var(--ok); background:var(--ok-soft);
+  border-radius:.5rem; padding:1rem 1.15rem; margin:0 0 1rem}
+.rec h3{margin:0 0 .4rem; font-size:1.05rem}
+.rec p:last-child{margin-bottom:0}
+
+/* ---- tables ---- */
+.tablewrap{overflow-x:auto; -webkit-overflow-scrolling:touch; margin:0 0 1.2rem;
+  border:1px solid var(--rule); border-radius:.5rem; background:var(--panel)}
+table{border-collapse:collapse; width:100%; min-width:34rem;
+  font:400 .97rem/1.5 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+th,td{text-align:left; padding:.6rem .8rem; border-bottom:1px solid var(--rule); vertical-align:top}
+th{font-weight:600; background:var(--accent-soft); color:var(--ink)}
+tr:last-child td{border-bottom:none}
+
+/* ---- captions & notes: 22px per house style ---- */
+figcaption,.caption{
+  font:400 22px/1.45 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  color:var(--ink-soft); margin:.6rem 0 1.4rem
+}
+.notice{
+  border:1px dashed var(--rule-strong); border-radius:.5rem; padding:.9rem 1.05rem;
+  margin:0 0 1.4rem; background:var(--panel);
+  font:400 .97rem/1.6 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif; color:var(--ink-soft)
+}
+.notice strong{color:var(--ink)}
+
+/* ---- provenance ---- */
+.prov{border:1px solid var(--rule); border-left:4px solid var(--rule-strong); border-radius:.5rem;
+  background:var(--panel); padding:1.1rem 1.25rem; margin:0 0 1.2rem}
+.prov h3{margin:0 0 .5rem; font-size:1.05rem}
+.prov p:last-child{margin-bottom:0}
+blockquote.prompt{
+  margin:.6rem 0 0; padding:.85rem 1rem; background:var(--accent-soft); border-radius:.4rem;
+  border-left:3px solid var(--accent);
+  font:400 .95rem/1.6 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  white-space:pre-wrap; overflow-wrap:break-word; word-break:normal; color:var(--ink)
+}
+footer.site{border-top:1px solid var(--rule); background:var(--panel); padding:1.6rem 0 2.4rem;
+  font:400 .92rem/1.6 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif; color:var(--ink-soft)}
+footer.site p{margin:0 0 .5rem; max-width:70ch}
+
+@media (max-width:640px){
+  body{font-size:1.02rem}
+  .wrap{padding:0 .95rem}
+  ul.sections a.sec{flex-direction:column; gap:.15rem}
+  ul.sections .num{flex:none}
+  .faq .answer{padding-left:1.1rem}
+  figcaption,.caption{font-size:22px}
+}
+
+@media print{
+  nav.pages,button.pdf,.backlink,.noprint{display:none !important}
+  body{background:#fff; color:#000; font-size:11pt}
+  .wrap{max-width:none; padding:0}
+  .faq{border:none; page-break-inside:avoid; margin-bottom:.5rem}
+  .faq summary{padding:.2rem 0}
+  .faq summary::before{content:"" !important}
+  .faq .answer{display:block !important; border-top:1px solid #ccc; padding:.3rem 0 .3rem 0}
+  details:not([open]) .answer{display:block !important}
+  details::details-content{content-visibility:visible !important; block-size:auto !important}
+  article.sec,.finding,.rec{page-break-inside:avoid; border:1px solid #bbb; background:#fff}
+  .tablewrap{overflow:visible; page-break-inside:avoid; border:1px solid #bbb}
+  table{min-width:0; width:100%}
+  .notice{page-break-inside:avoid}
+  .prov{page-break-inside:auto; border:1px solid #bbb; background:#fff}
+  blockquote.prompt{background:#f4f4f4; border-left:3px solid #999; font-size:9.5pt}
+  a{color:#000; text-decoration:none}
+  a[href^="http"]::after{content:" (" attr(href) ")"; font-size:8pt; color:#555}
+  h2{page-break-after:avoid}
+  figcaption,.caption{font-size:12pt}
+}
+
+</style>
+</head>
+<body>
+<header class="masthead">
+  <div class="wrap">
+    <p class="eyebrow">City of Worland, Wyoming &middot; Unofficial plain-language edition</p>
+    <h1>The ordinance text, in full</h1>
+    <p class="standfirst">Every section cited on the index page, reproduced in full and in code order, with the ordinance history that appears in the official code.</p>
+  </div>
+</header>
+<nav class="pages" aria-label="Site pages">
+  <div class="wrap">
+    <a href="index.html">Dog Laws Index</a>
+    <a href="ordinances.html" aria-current="page">Ordinance Text</a>
+    <a href="audit.html">Audit Report</a>
+    <span class="spacer"></span>
+    <button class="pdf" type="button" onclick="window.print()">Save this page as PDF</button>
+  </div>
+</nav>
+<main>
+  <div class="wrap">
+<div class="notice">
+  <strong>How to read this page.</strong> Sections appear in code order: Chapter 1, then Chapter 2A, then
+  Chapter 4. The parenthetical line at the foot of each section is the ordinance history as it appears in the
+  official code &mdash; the ordinance numbers and dates that enacted or amended that section. Headings are the
+  section catchlines used by the City. Nothing has been paraphrased or abridged.
+  <a class="noprint" href="index.html">Back to the index</a>.
+</div>
+
+<h2>Chapter 1 &mdash; General Provisions</h2>
+
+<article class="sec" id="s1-7">
+  <h3><span class="n">Sec. 1-7.</span> General penalty; continuing violations.</h3>
+  <p>Wherever in this Code, or in any ordinance, rule or regulation promulgated by any officer or agency of the
+  City under authority vested in him or it by law or ordinance, any act is prohibited or is declared to be
+  unlawful, or the doing of any act is required, or the failure to do any act is declared to be unlawful, and no
+  specific penalty is provided therefor, the violation of any such provision of this Code, or any such ordinance,
+  rule or regulation shall constitute a misdemeanor and shall be punished by a fine of not more than $750.00, to
+  which may be added costs. Each day any violation of this Code or any such ordinance, rule or regulation continues
+  shall constitute a separate offense. In addition to any fine imposed under this section, there shall be imposed
+  upon the violator costs not to exceed $10.00 which shall be deposited in the City of Worland Municipal Court
+  account for costs.</p>
+  <p class="hist">(Ord. 390, &sect; 2, 1-3-1974; Ord. 495, &sect; 2, 7-17-1980; Ord. 508, &sect; 2, 7-2-1981; Ord. 771,
+  &sect; 1, 3-17-2008; Ord. 843, &sect; 1, 10-17-2017; Ord. 854, 6-16-2020; Ord. No. 862, &sect; 1, 3-15-2022)
+  &nbsp;&middot;&nbsp; <a href="https://library.municode.com/wy/worland/codes/code_of_ordinances?nodeId=CH1GEPR">Official text: Chapter 1 on Municode</a></p>
+</article>
+
+<h2>Chapter 2A &mdash; Airports and Aircraft</h2>
+
+<article class="sec" id="s2a-22">
+  <h3><span class="n">Sec. 2A-22(E).</span> General rules &mdash; Control of pets.</h3>
+  <p>No person shall enter the aircraft operation areas of the airport with a dog or other animal. No person shall
+  allow his pet to enter public use areas of the passenger terminal building, except those helping the disabled or
+  secured in an enclosure for transport aboard an aircraft. Pets may be permitted in other areas of the airport if
+  restrained by leash or confined in such other manner as to be under control. Owners shall be responsible for
+  repairing or removing any damage or debris caused by their animal. Animals acting in an official capacity under
+  the control of a peace officer, duly authorized post office, airport, or air carrier employee shall be exempt
+  from area restrictions.</p>
+  <p class="hist">Subsection E of Sec. 2A-22. Violation of the airport article is a misdemeanor punishable by a
+  fine of not more than $750.00 plus costs under Sec. 2A-27. (Ord. 454, &sect; 2, 9-21-1978; Ord. 739, &sect;&sect; 2, 6,
+  8-16-2001) &nbsp;&middot;&nbsp; <a href="https://library.municode.com/wy/worland/codes/code_of_ordinances?nodeId=CH2AAIAI_ARTIIWOMUAI_S2A-22GERU">Official text: Sec. 2A-22 on Municode</a></p>
+</article>
+
+<h2>Chapter 4, Article I &mdash; In General</h2>
+
+<article class="sec" id="s4-1">
+  <h3><span class="n">Sec. 4-1.</span> Running at large; generally.</h3>
+  <ol class="sub" type="A">
+    <li><strong>Definition of terms.</strong> As used in this section:
+      <p><em>Animal:</em> For the purpose of this section shall mean any and all types of animals both domesticated
+      and wild, male and female, singular and plural with the exception of dogs and cats.</p>
+      <p><em>At large:</em> Off the premises of the owner or custodian of the animal or fowl, and not under the
+      immediate control of the owner or custodian.</p>
+      <p><em>Fowl:</em> Any and all fowl, domesticated and wild, male and female, singular and plural.</p></li>
+    <li><strong>Animals and fowl not to be permitted at large:</strong> No person owning or having in his custody
+    animals or fowl shall permit same to go at large to the injury or annoyance of others, nor shall such animals or
+    fowl be permitted at large upon the streets or other public ways of the City. Such action is declared to be a
+    nuisance and dangerous to the public health and safety.</li>
+    <li><strong>Property owner may impound:</strong> Any person finding any animal or fowl upon his property to his
+    injury or annoyance may take up same and remove it to any private or other animal shelter that will take
+    possession of it. If no such shelter is available, he may hold the animal or fowl in his own possession, and as
+    soon as possible notify the Police Department of this custody, giving a description of the animal or fowl and
+    the name of the owner if known.</li>
+    <li><strong>Police to take possession:</strong> The Police Department as soon as possible after receiving notice
+    will dispatch an officer to appear at the premises and take possession of the animal or fowl.</li>
+    <li><strong>Return to owner:</strong> If the officer has or with reasonable dispatch can obtain the name of the
+    owner or custodian of the animal or fowl, he will return it to the residence address. If there is no one at the
+    address, he will leave a notice where the owner or custodian may reclaim the property. He will then proceed to
+    the nearest animal hospital or shelter which will accept the animal or fowl and leave it. He will then secure or
+    cause to be secured and serve or have served a warrant of arrest on the owner or custodian for permitting the
+    animal or fowl to go at large.</li>
+    <li><strong>Owner to pay board for animal:</strong> The owner or custodian who redeems an animal or fowl from an
+    animal hospital or shelter will pay a board bill on a per diem basis in an amount previously agreed to between
+    the City and the owner of the hospital or shelter, but in no event shall such payment be less than $2.00 for
+    small animals and fowl, and $3.00 for large animals such as horses, mules, and cows.</li>
+    <li><strong>Disposition if owner not found:</strong> Any officer or designated person picking up an animal or
+    fowl and who after reasonable diligence is unable to find who owns or has custody of it, will take it to the
+    nearest animal hospital or shelter and leave it.</li>
+    <li><strong>Officer may impound:</strong> Any police officer or other person designated by the City for such
+    purpose is authorized to capture and impound any animal or fowl found at large, impounding to be in accordance
+    with the procedure authorized by this section. In the event capture cannot be effected promptly, the officer or
+    person is authorized to destroy the animal or fowl.</li>
+    <li><strong>Disposition of unredeemed animals:</strong> Any animal or fowl not redeemed within three days will be
+    disposed of in such manner as agreed upon between the City and owner of the animal hospital or shelter. The
+    owner of the hospital or shelter is made an agent of the City for this purpose, and his actions in this regard
+    are declared to be for a governmental purpose.</li>
+    <li><strong>Disposition of large animals:</strong> Should any officer or designated person upon call or upon his
+    own initiative pick up a large animal such as a horse, cow, or mule or any other animal not acceptable by any
+    animal hospital or shelter, he is authorized to call a trucking firm or company. The firm or company will
+    transfer the animal to an auction approved by the City. The disposition of the animal in this case shall be
+    handled in the same manner as though it were in an animal hospital or shelter.</li>
+    <li><strong>Administrative Officer to make necessary agreements:</strong> The Chief of Police of the City is
+    instructed to enter into the necessary agreements with animal hospitals, shelters and the Stockgrowers&rsquo;
+    Livestock Auction, Inc., to carry out the terms of this section.</li>
+  </ol>
+  <p class="hist">(Ord. 452, &sect;&sect; 1&mdash;11, 9-21-1978; Ord. 675, &sect;&sect; 1, 2, 1-19-1995; Ord. 834, 5-3-2016)
+  &nbsp;&middot;&nbsp; <a href="https://library.municode.com/wy/worland/codes/code_of_ordinances?nodeId=CH4ANFO">Official text: Chapter 4 on Municode</a></p>
+</article>
+
+<article class="sec" id="s4-1-1">
+  <h3><span class="n">Sec. 4-1-1.</span> Running at large; dogs and cats; definitions.</h3>
+  <p>The following words, as used in this article, shall have the meanings ascribed to them in this section unless
+  the context otherwise indicates:</p>
+  <p><em>At large:</em> Off the premises of the owner and not under the control of the owner or his agent either by
+  leash, cord, chain or otherwise.</p>
+  <p><em>Cat:</em> Both male and female.</p>
+  <p><em>Dog:</em> Both male and female.</p>
+  <p><em>Owner:</em> Any person owning, keeping or harboring a dog or cat.</p>
+  <p class="hist">(Ord. 327, &sect; 1, 1-18-1962) &nbsp;&middot;&nbsp; <a href="https://library.municode.com/wy/worland/codes/code_of_ordinances?nodeId=CH4ANFO">Official text: Chapter 4 on Municode</a></p>
+</article>
+
+<article class="sec" id="s4-1-2">
+  <h3><span class="n">Sec. 4-1-2.</span> Running at large; dogs and cats; prohibited.</h3>
+  <p>Every owner of a dog or cat shall keep the same securely confined on his premises; provided, that this shall
+  not prevent the owner from having the dog or cat on the streets and public places of the City when the dog or cat
+  is controlled by chain, cord or leash. A female in season shall be confined in such a way that other dogs or cats
+  cannot contact her.</p>
+  <p class="hist">(Ord. 327, &sect; 2, 1-18-1962) &nbsp;&middot;&nbsp; <a href="https://library.municode.com/wy/worland/codes/code_of_ordinances?nodeId=CH4ANFO">Official text: Chapter 4 on Municode</a></p>
+</article>
+
+<article class="sec" id="s4-1-3">
+  <h3><span class="n">Sec. 4-1-3.</span> Running at large; dogs and cats; impoundment; redemption fee.</h3>
+  <p>It shall be the duty of every police officer to apprehend and impound any dogs or cats found running at large
+  contrary to the provisions of Section 4-1-2 of this article. No such animal taken up and confined shall be
+  released until the owner or person entitled to the possession thereof shall pay to the City Treasurer the sum of
+  $50.00 as a fee for taking up and receiving such animal. In addition to said fee, the owner shall reimburse the
+  City for the daily impoundment fee charged by the veterinarian for keeping said animal.</p>
+  <p class="hist">(Ord. 327, &sect; 3, 1-18-1962; Ord. 363, &sect; 1, 7-2-1970; Ord. 414, &sect; 1; Ord. 500, &sect; 1,
+  12-4-1980; Ord. 675, &sect; 3, 1-19-1995) &nbsp;&middot;&nbsp; <a href="https://library.municode.com/wy/worland/codes/code_of_ordinances?nodeId=CH4ANFO">Official text: Chapter 4 on Municode</a></p>
+</article>
+
+<article class="sec" id="s4-1-4">
+  <h3><span class="n">Sec. 4-1-4.</span> Destruction of impounded dogs and cats.</h3>
+  <p>All impounded dogs or cats that are not redeemed within three days after the date of impoundment shall be
+  destroyed or otherwise appropriately disposed of by the City.</p>
+  <p class="hist">(Ord. 497, &sect;&sect; 1-3, 9-4-1980; Ord. 675, &sect; 4, 1-19-1995) &nbsp;&middot;&nbsp; <a href="https://library.municode.com/wy/worland/codes/code_of_ordinances?nodeId=CH4ANFO">Official text: Chapter 4 on Municode</a></p>
+</article>
+
+<article class="sec" id="s4-2">
+  <h3><span class="n">Sec. 4-2.</span> Cruelty to animals.</h3>
+  <p>It shall be unlawful for any person to inhumanely, unnecessarily or cruelly overwork, override, beat, injure or
+  otherwise abuse any animal or to allow any animal to run at large in the City. All animals shall be protected from
+  abuse, neglect and abandonment and shall, at all times, be provided with a safe and healthy environment with
+  proper food, water and shelter from extreme weather. All animals shall have access to shelter that is dry and
+  clear of any waste or hazardous material.</p>
+  <p class="hist">(Ord. 25, &sect; 2, 3-8-1915; Ord. 750, &sect; 1, 5-15-2003). Wyoming law on the same subject:
+  W.S. &sect; 11-546. &nbsp;&middot;&nbsp; <a href="https://library.municode.com/wy/worland/codes/code_of_ordinances?nodeId=CH4ANFO">Official text: Chapter 4 on Municode</a></p>
+</article>
+
+<article class="sec" id="s4-3">
+  <h3><span class="n">Sec. 4-3.</span> Animal waste.</h3>
+  <p>The owner or any person having or purporting to have control over any animal is responsible for the removal of
+  any excreta deposited by said animal on public walks, public ways, parks, recreation areas, or private property,
+  other than that of the owner. It shall be unlawful for said owner or person having or purporting to have control
+  of said animal to fail to properly remove the deposited excreta.</p>
+  <p class="hist">(Ord. 717, &sect; 1, 6-18-1998) &nbsp;&middot;&nbsp; <a href="https://library.municode.com/wy/worland/codes/code_of_ordinances?nodeId=CH4ANFO">Official text: Chapter 4 on Municode</a></p>
+</article>
+
+<article class="sec" id="s4-4">
+  <h3><span class="n">Sec. 4-4.</span> Multiple pet licenses.</h3>
+  <p>Any person who owns or keeps more than ten dogs or cats, in any combination, shall pay, in addition to the
+  regular licensing fees, a flat fee in the amount of $50.00 each year by, on or before January 31. The litters of
+  legally bred and properly licensed pets will not count towards the ten pet limit until the offspring have reached
+  the age of four months old.</p>
+  <p class="hist">(Ord. 750, &sect; 2, 5-15-2003) &nbsp;&middot;&nbsp; <a href="https://library.municode.com/wy/worland/codes/code_of_ordinances?nodeId=CH4ANFO">Official text: Chapter 4 on Municode</a></p>
+</article>
+
+<article class="sec" id="s4-6">
+  <h3><span class="n">Sec. 4-6.</span> Hindering, obstructing Impounding Officer.</h3>
+  <p>It shall be unlawful for any person to hinder, obstruct or delay the Chief of Police, or his assistants, in
+  taking any animals into custody.</p>
+  <p class="hist">(Ord. 23, &sect; 5, 3-8-1915) &nbsp;&middot;&nbsp; <a href="https://library.municode.com/wy/worland/codes/code_of_ordinances?nodeId=CH4ANFO">Official text: Chapter 4 on Municode</a></p>
+</article>
+
+<article class="sec" id="s4-7">
+  <h3><span class="n">Sec. 4-7.</span> Releasing impounded animals.</h3>
+  <p>It shall be unlawful for any person to break open in any manner or directly or indirectly to aid or assist in
+  breaking open any pen or enclosure with intent of releasing any animal confined therein, pursuant to the
+  provisions of this article.</p>
+  <p class="hist">(Ord. 23, &sect; 6, 3-8-1915) &nbsp;&middot;&nbsp; <a href="https://library.municode.com/wy/worland/codes/code_of_ordinances?nodeId=CH4ANFO">Official text: Chapter 4 on Municode</a></p>
+</article>
+
+<article class="sec" id="s4-7-1">
+  <h3><span class="n">Sec. 4-7-1.</span> Dog and cat kennels prohibited; kennel defined.</h3>
+  <p>Every person maintaining a kennel within the City is hereby declared to be guilty of maintaining a nuisance,
+  and upon conviction thereof, shall be punished as herein provided.</p>
+  <p>For the purposes of this section, &ldquo;kennel&rdquo; shall mean any premises or property of any kind or
+  description where more than one female dog or female cat is kept for breeding purposes or where more than one
+  litter of pups or kittens is kept for purpose of sale.</p>
+  <p>Any person violating any provision of this section, upon conviction thereof, shall be punished as provided in
+  Section 1-7 of this Code.</p>
+  <p class="hist">(Ord. 362, &sect;&sect; 1&mdash;3, 6-18-1970; Ord. 390, &sect; 3, 1-3-1974) &nbsp;&middot;&nbsp; <a href="https://library.municode.com/wy/worland/codes/code_of_ordinances?nodeId=CH4ANFO">Official text: Chapter 4 on Municode</a></p>
+</article>
+
+<article class="sec" id="s4-7-2">
+  <h3><span class="n">Sec. 4-7-2.</span> Public nuisance.</h3>
+  <p><strong>A.</strong> Each of the following offenses with respect to animals and fowl kept within the City limits
+  are hereby declared to be a public nuisance:</p>
+  <ol class="sub">
+    <li>Dogs or cats which molest people or passing vehicles (including bicycles); or bark, whine or howl in an
+    excessive, continuous or untimely fashion.</li>
+    <li>Fowl, such as ducks, geese, turkeys, etc., which:
+      <p>a. Are not kept enclosed in a good substantial pen.</p>
+      <p>b. Are kept within 100 feet of the structure of any school, church, hospital, residence or dwelling, except
+      the residence or dwelling of the owner of such fowl and dwellings or residences located in areas zoned as ER
+      estate residential.</p></li>
+    <li>Rabbits which:
+      <p>a. Are not kept enclosed in a good and substantial pen.</p>
+      <p>b. Are kept within 25 feet of the structure of any school, church, hospital, residence, or dwelling, except
+      the residence or dwelling of the owner.</p></li>
+    <li>Horses, cattle, sheep, goats, hogs and other livestock which:
+      <p>a. Are not kept enclosed in a good substantial pen.</p>
+      <p>b. Are kept within 100 feet of the structure of any school, church, hospital, residence or dwelling, except
+      the residence or dwelling of the owner of said livestock and dwellings or residences located in areas zoned as
+      ER estate residential.</p>
+      <p>c. Have less than 10,000 square feet of yard space per animal.</p></li>
+    <li>Animal or fowl:
+      <p>a. Producing waste which the owner thereof allows to accumulate, attract flies, and/or emit offensive odors
+      that can be detected off of the premises of the owner.</p>
+      <p>b. Producing waste accumulation that presents a potential danger to the public health as determined by City
+      board of health.</p>
+      <p>c. The failure of the owner of every dog to be responsible for the removal of any excreta deposited by
+      his/her animal on public walks, recreation areas, or private property other than that of the owner.</p></li>
+    <li>Chickens which are not in compliance specifically with Section 4-30 or in general with Chapter 4 of the
+    Worland City Code.</li>
+  </ol>
+  <p class="hist">(Ord. 556, &sect; 1, 9-20-1984; Ord. 591, &sect; 1, 12-19-1985; Ord. 623, &sect; 1, 5-18-1989;
+  Ord. 663, &sect;&sect; 1, 2, 10-21-1993; Ord. 834, 5-3-2016; Ord. No. 865, &sect; 1, 10-4-2022) &nbsp;&middot;&nbsp; <a href="https://library.municode.com/wy/worland/codes/code_of_ordinances?nodeId=CH4ANFO">Official text: Chapter 4 on Municode</a></p>
+</article>
+
+<article class="sec" id="s4-7-3">
+  <h3><span class="n">Sec. 4-7-3.</span> Owner&rsquo;s responsibility.</h3>
+  <p>An &ldquo;owner&rdquo; is defined as any person, partnership, or corporation, (or their agents), owning, keeping
+  or harboring one or more animals and/or one or more fowl. Such animal or fowl shall be deemed to be harbored if it
+  is fed or sheltered for three or more consecutive days.</p>
+  <p>No owner shall fail to prevent said animal or fowl from becoming a public nuisance as provided in Section 4-7-2
+  of this article.</p>
+  <p>Any animal or fowl which is the subject of three violations of Section 4-7-2 of this article shall be, on the
+  third violation, declared a habitual public nuisance, and upon determination thereof by the court, the owner shall
+  be required to have the animal or fowl destroyed or relocated. The owner shall have ten days from the date of
+  notification to relocate the same outside the City limits. At the end of this period, if the culprit is not
+  relocated, it shall be humanely disposed of under the direction and supervision of the Chief of Police.</p>
+  <p class="hist">(Ord. 556, &sect; 2, 9-20-1984; Ord. 591, &sect; 2, 12-19-1985; Ord. 601, &sect; 2, 7-17-1986)
+  &nbsp;&middot;&nbsp; <a href="https://library.municode.com/wy/worland/codes/code_of_ordinances?nodeId=CH4ANFO">Official text: Chapter 4 on Municode</a></p>
+</article>
+
+<article class="sec" id="s4-7-4">
+  <h3><span class="n">Sec. 4-7-4.</span> Chemical immobilization.</h3>
+  <p>The Chief of Police or his designees shall have the authority to utilize chemicals to immobilize animals that
+  are at large within the City, or one deemed a danger to themselves or the community.</p>
+  <p>The Chief of Police shall with the assistance and direction of a consulting veterinarian train one or more
+  officers in the use of chemical immobilization and said officers shall administer the chemical under the direction
+  of the consulting veterinarian.</p>
+  <p class="hist">(Ord. 556, &sect; 3, 9-20-1984) &nbsp;&middot;&nbsp; <a href="https://library.municode.com/wy/worland/codes/code_of_ordinances?nodeId=CH4ANFO">Official text: Chapter 4 on Municode</a></p>
+</article>
+
+<article class="sec" id="s4-7-5">
+  <h3><span class="n">Sec. 4-7-5.</span> Penalties.</h3>
+  <p>Any violator of any provision of this article shall be guilty of a misdemeanor and shall be punished as
+  provided in Section 1-7 of this Code.</p>
+  <p class="hist">(Ord. 556, &sect; 4, 9-20-1984). Note: &ldquo;this article&rdquo; is Article I. Articles II, III and
+  IV contain no penalty section of their own. &nbsp;&middot;&nbsp; <a href="https://library.municode.com/wy/worland/codes/code_of_ordinances?nodeId=CH4ANFO">Official text: Chapter 4 on Municode</a></p>
+</article>
+
+<h2>Chapter 4, Article III &mdash; Dogs</h2>
+
+<article class="sec" id="s4-reserved">
+  <h3><span class="n">Secs. 4-13, 4-14, 4-16, 4-19&mdash;4-23.</span> Reserved.</h3>
+  <p>These section numbers appear in the City&rsquo;s table of contents under the heading &ldquo;ARTICLE III &mdash;
+  DOGS&rdquo; but contain no text. Secs. 4-13, 4-14 and 4-16 were repealed by Ord. 675 (19 January 1995);
+  Secs. 4-19 through 4-23 were repealed by Ord. 750, &sect; 7 (15 May 2003). Secs. 4-27 through 4-29, between the
+  licensing article and the chickens article, are likewise reserved.</p>
+  <p class="hist"><a href="https://library.municode.com/wy/worland/codes/code_of_ordinances?nodeId=CH4ANFO">Official text: Chapter 4 on Municode</a></p>
+</article>
+
+<article class="sec" id="s4-15">
+  <h3><span class="n">Sec. 4-15.</span> Keeping cross or vicious dogs.</h3>
+  <p>No person shall own, keep or harbor, or allow to be upon any premises occupied by him or under his charge and
+  control, any notoriously vicious or cross dog, or any dog that may manifest a disposition to bite any person,
+  without having such dog properly secured and muzzled. If, under the provisions hereof, and upon conviction of any
+  person violating this section, it shall appear to the municipal court judge that the dog is still living, the
+  judge may, in addition to the punishment provided in Section 1-7 of this Code, order any police officer to
+  forthwith cause such dog to be killed; and, for that purpose, any office charged with such duty shall have the
+  right to enter upon any premises within the City.</p>
+  <p class="hist">(Ord. 237, &sect; 2, 10-5-1950; Ord. 675, &sect; 9, 1-19-1995). The word &ldquo;office&rdquo; in the
+  final clause appears that way in the official code. &nbsp;&middot;&nbsp; <a href="https://library.municode.com/wy/worland/codes/code_of_ordinances?nodeId=CH4ANFO">Official text: Chapter 4 on Municode</a></p>
+</article>
+
+<article class="sec" id="s4-17">
+  <h3><span class="n">Sec. 4-17.</span> Annual vaccination of dogs.</h3>
+  <p>It shall be unlawful for any person to own or keep a dog in the City without first having such dog inoculated
+  or vaccinated for rabies by a licensed veterinarian. The owner or keeper of such dog must have proof of such
+  inoculation or vaccination in the form of a certificate issued by such veterinarian. All dogs must be current on
+  their inoculation or vaccination for rabies as determined by a veterinarian.</p>
+  <p class="hist">(Ord. 242, &sect; 2, 4-5-1951; Ord. 596, &sect; 1, 6-9-1986; Ord. 675, &sect; 11, 1-19-1995;
+  Ord. 750, &sect; 6, 5-15-2003). Wyoming law on the same subject: W.S. &sect; 15-102. &nbsp;&middot;&nbsp; <a href="https://library.municode.com/wy/worland/codes/code_of_ordinances?nodeId=CH4ANFO">Official text: Chapter 4 on Municode</a></p>
+</article>
+
+<article class="sec" id="s4-18">
+  <h3><span class="n">Sec. 4-18.</span> License; required. <em>(Repealed)</em></h3>
+  <p>Repealed by Ord. 809, 20 August 2013, effective 1 September 2013. The section number and its catchline still
+  appear in the City&rsquo;s table of contents under &ldquo;ARTICLE III &mdash; DOGS.&rdquo; The licensing rule now in
+  force is <a href="#s4-26">Sec. 4-26</a>, in Article IV.</p>
+  <p class="hist"><a href="https://library.municode.com/wy/worland/codes/code_of_ordinances?nodeId=CH4ANFO">Official text: Chapter 4 on Municode</a></p>
+</article>
+
+<article class="sec" id="s4-24">
+  <h3><span class="n">Sec. 4-24.</span> Impounding dogs not properly licensed or vaccinated.</h3>
+  <p>All dogs in the City not having the proper license tags and vaccination or inoculation tags, as provided in
+  this article, shall be captured by such person as may be designated by the City, and impounded. Such dogs so
+  impounded shall be kept for a period of at least three days, exclusive of the day of capture, and if not claimed
+  by the owner or keeper thereof and the proper licenses purchased therefor, as provided in this article, then the
+  dogs so impounded shall be exterminated or destroyed and their bodies buried beyond the City limits.</p>
+  <p class="hist">(Ord. 242, &sect; 8, 4-5-1951) &nbsp;&middot;&nbsp; <a href="https://library.municode.com/wy/worland/codes/code_of_ordinances?nodeId=CH4ANFO">Official text: Chapter 4 on Municode</a></p>
+</article>
+
+<article class="sec" id="s4-25">
+  <h3><span class="n">Sec. 4-25.</span> Confinement of dogs that have bitten persons.</h3>
+  <p>Any dog that has bitten any person shall be confined under the observation of a licensed veterinarian for a
+  period of ten days, after the attack, at the expense of the owner, to determine whether the animal has any disease
+  which may be communicated to humans. Home quarantine may be allowed, as determined by and at the discretion of the
+  Animal Control Officer or Peace Officer.</p>
+  <p class="hist">(Ord. 242, &sect; 10, 4-5-1951; Ord. No. 879, &sect; 1, 5-6-2025, eff. 5-17-2025). This is the most
+  recently amended dog provision in the Code. &nbsp;&middot;&nbsp; <a href="https://library.municode.com/wy/worland/codes/code_of_ordinances?nodeId=CH4ANFO_ARTIIIDO_S4-25CODOHABIPE">Official text: Sec. 4-25 on Municode</a></p>
+</article>
+
+<h2>Chapter 4, Article IV &mdash; Licensing of Cats and Dogs</h2>
+
+<article class="sec" id="s4-26">
+  <h3><span class="n">Sec. 4-26.</span> License requirements.</h3>
+  <ol class="sub" type="A">
+    <li>Each cat and dog five months of age or older shall be licensed each calendar year. Licenses for cats and
+    dogs shall commence on January 1 and shall end on December 31 of each year. If a newly acquired cat or dog is
+    licensed during the calendar year, the license fee shall be prorated from the date of receipt of the pet
+    forward. It shall be an offense for any person to harbor a cat or dog within the City which does not have a
+    current license after January 31 of each year. Legitimate pet stores and humane societies are not required to
+    license cats and dogs associated with business purposes. Charges for first offense violators will be dismissed
+    after showing proof that the cat or dog has been licensed.</li>
+    <li>The City Treasurer shall furnish a metal plate or tag with each license, bearing the number of the license
+    and the year for which it was issued, which plate or tag shall be attached to and worn by the cat or dog at all
+    times.</li>
+    <li>Before a cat or dog license is issued, proof of current vaccination or inoculation of the cat or dog shall be
+    presented and a metal plate or tag shall be furnished of a different color or design than the license to be worn
+    by the cat or dog at all times.</li>
+    <li>Any person desiring to keep a cat or dog within the City shall pay a license fee of $12.50 for each neutered
+    male or spayed female and a $35.00 fee for each unneutered male or unspayed female. Proof that a cat or dog has
+    been neutered or spayed shall be provided at the time of licensing.</li>
+  </ol>
+  <p class="hist">(Ord. 809, 8-20-2013, eff. 9-1-2013) &nbsp;&middot;&nbsp; <a href="https://library.municode.com/wy/worland/codes/code_of_ordinances?nodeId=CH4ANFO">Official text: Chapter 4 on Municode</a></p>
+</article>
+
+<p class="backlink noprint"><a href="index.html">&larr; Back to the index and FAQ</a> &nbsp;&middot;&nbsp;
+<a href="audit.html">Read the audit report &rarr;</a></p>
+
+  </div>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <p><strong>This is not the official code.</strong> It is an unofficial, plain-language republication of
+    the dog-related provisions of the Code of the City of Worland, Wyoming, prepared to make them easier to
+    find and read. The controlling text is the one published by the City at
+    <a href="https://library.municode.com/wy/worland/codes/code_of_ordinances">library.municode.com/wy/worland</a>.
+    Where this edition and the official code differ, the official code governs.</p>
+    <p>Ordinance text reproduced here is the enacted law of the City of Worland and is in the public domain as a
+    government edict. Layout, plain-language summaries, groupings and commentary on these pages are original to
+    this edition. Source consulted: the City of Worland Code of Ordinances as displayed on Municode, version
+    dated 27 October 2025. Pages last built 25 August 2026.</p>
+    <p>Every page here prints cleanly: use <em>Save this page as PDF</em> and choose &ldquo;Save as PDF&rdquo; as the
+    destination in your browser&rsquo;s print dialog.</p>
+  </div>
+</footer>
+<script>
+(function () {
+  var D = function () { return document.querySelectorAll('details'); };
+  function openAll() { D().forEach(function (d) { d.dataset.wasOpen = d.open ? '1' : '0'; d.open = true; }); }
+  function restore() { D().forEach(function (d) { d.open = d.dataset.wasOpen === '1'; delete d.dataset.wasOpen; }); }
+  window.addEventListener('beforeprint', openAll);
+  window.addEventListener('afterprint', restore);
+  var mq = window.matchMedia && window.matchMedia('print');
+  if (mq && mq.addEventListener) { mq.addEventListener('change', function (e) { e.matches ? openAll() : restore(); }); }
+  document.querySelectorAll('button.pdf').forEach(function (b) {
+    b.addEventListener('click', function () { openAll(); });
+  });
+}());
+</script>
+</body>
+</html>

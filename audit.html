@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Worland Dog Laws — Audit Report</title>
+<meta name="description" content="An audit of how the City of Worland, Wyoming presents its dog ordinances — structural inconsistencies and barriers for ordinary users.">
+<meta name="robots" content="index,follow">
+<style>
+:root{
+  --bg:#fbfaf7; --panel:#ffffff; --ink:#1c1b19; --ink-soft:#4a4742;
+  --rule:#e2ded5; --rule-strong:#c9c3b6; --accent:#7c4a1e; --accent-soft:#f3ece2;
+  --link:#8a4b12; --flag:#8c2f2f; --flag-soft:#faeceb; --ok:#2f6b46; --ok-soft:#eaf3ed;
+  --max:74rem;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#16150f; --panel:#1e1d16; --ink:#eeeae0; --ink-soft:#b6b0a2;
+    --rule:#33312a; --rule-strong:#4a473d; --accent:#d69a5f; --accent-soft:#2a251c;
+    --link:#e0a86a; --flag:#e08b84; --flag-soft:#33201f; --ok:#8fc9a4; --ok-soft:#1d2a22;
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font:400 1.0625rem/1.65 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+}
+.wrap{max-width:var(--max); margin:0 auto; padding:0 1.25rem}
+a{color:var(--link)}
+a:hover{text-decoration:none}
+
+/* ---- masthead + nav ---- */
+.masthead{border-bottom:1px solid var(--rule); background:var(--panel)}
+.masthead .wrap{padding-top:1.5rem; padding-bottom:1.1rem}
+.eyebrow{
+  font:600 .74rem/1.2 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  letter-spacing:.16em; text-transform:uppercase; color:var(--accent); margin:0 0 .5rem
+}
+h1{font-size:clamp(1.65rem,4.4vw,2.5rem); line-height:1.15; margin:0 0 .5rem; letter-spacing:-.01em}
+.standfirst{margin:0; color:var(--ink-soft); font-size:1.06rem; max-width:60ch}
+nav.pages{border-bottom:1px solid var(--rule); background:var(--bg); position:sticky; top:0; z-index:20}
+nav.pages .wrap{display:flex; flex-wrap:wrap; gap:.35rem; padding-top:.5rem; padding-bottom:.5rem; align-items:center}
+nav.pages a{
+  font:600 .9rem/1 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  text-decoration:none; color:var(--ink-soft); padding:.55rem .8rem; border-radius:.4rem
+}
+nav.pages a:hover{background:var(--accent-soft); color:var(--ink)}
+nav.pages a[aria-current="page"]{background:var(--accent); color:#fff}
+@media (prefers-color-scheme:dark){nav.pages a[aria-current="page"]{color:#16150f}}
+.spacer{flex:1 1 auto}
+button.pdf{
+  font:600 .9rem/1 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  cursor:pointer; border:1px solid var(--rule-strong); background:var(--panel); color:var(--ink);
+  padding:.55rem .85rem; border-radius:.4rem
+}
+button.pdf:hover{background:var(--accent-soft)}
+
+main{padding:2rem 0 4rem}
+h2{
+  font-size:clamp(1.25rem,3vw,1.6rem); line-height:1.2; margin:2.6rem 0 .9rem;
+  padding-bottom:.45rem; border-bottom:2px solid var(--rule-strong); letter-spacing:-.01em
+}
+h2:first-child{margin-top:0}
+h3{font-size:1.12rem; margin:1.8rem 0 .5rem; line-height:1.3}
+p{margin:0 0 .9rem}
+.lede{font-size:1.1rem; color:var(--ink-soft)}
+
+/* ---- FAQ ---- */
+.faq{border:1px solid var(--rule); border-radius:.6rem; background:var(--panel); overflow:hidden; margin:0 0 1rem}
+.faq summary{
+  cursor:pointer; padding:1rem 1.1rem; font-weight:600; font-size:1.08rem;
+  list-style:none; display:flex; gap:.75rem; align-items:baseline
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::before{content:"+"; color:var(--accent); font-weight:700; flex:0 0 auto}
+.faq[open] summary::before{content:"–"}
+.faq summary:hover{background:var(--accent-soft)}
+.faq .answer{padding:0 1.1rem 1.1rem 2.6rem; border-top:1px solid var(--rule)}
+.faq .answer p:first-child{margin-top:.9rem}
+.cites{
+  margin:.6rem 0 0; padding:.6rem .8rem; background:var(--accent-soft); border-radius:.4rem;
+  font:400 .95rem/1.5 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+.cites strong{font-weight:600}
+
+/* ---- index list ---- */
+.group{margin:0 0 1.6rem}
+.group > h3{margin-top:1.4rem}
+ul.sections{list-style:none; margin:0; padding:0; border-top:1px solid var(--rule)}
+ul.sections li{border-bottom:1px solid var(--rule)}
+ul.sections a.sec{
+  display:flex; gap:.9rem; align-items:baseline; text-decoration:none; color:inherit;
+  padding:.7rem .55rem
+}
+ul.sections a.sec:hover{background:var(--accent-soft)}
+ul.sections .num{
+  flex:0 0 6.5rem; font:600 .92rem/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  color:var(--accent)
+}
+ul.sections .ttl{flex:1 1 auto}
+ul.sections .ttl small{display:block; color:var(--ink-soft); font-size:.9rem; font-family:ui-sans-serif,system-ui,sans-serif}
+li.repealed a.sec{opacity:.62}
+li.repealed .ttl small{color:var(--flag)}
+
+/* ---- ordinance text ---- */
+article.sec{
+  border:1px solid var(--rule); border-radius:.6rem; background:var(--panel);
+  padding:1.2rem 1.3rem; margin:0 0 1.1rem
+}
+article.sec:target{border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-soft)}
+article.sec h3{margin-top:0; font-size:1.16rem}
+article.sec h3 .n{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; color:var(--accent)}
+.sub{margin:0 0 .8rem 0; padding:0 0 0 1.6rem}
+.sub > li{margin:0 0 .7rem}
+.hist{
+  margin:.9rem 0 0; padding-top:.7rem; border-top:1px solid var(--rule);
+  font:400 .88rem/1.5 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif; color:var(--ink-soft)
+}
+.hist a{color:var(--link)}
+.backlink{font:600 .85rem/1 ui-sans-serif,system-ui,sans-serif}
+
+/* ---- audit findings ---- */
+.finding{border:1px solid var(--rule); border-left:4px solid var(--flag); border-radius:.5rem;
+  background:var(--panel); padding:1rem 1.15rem; margin:0 0 1rem}
+.finding.usability{border-left-color:var(--accent)}
+.finding h3{margin:0 0 .5rem; font-size:1.08rem; display:flex; gap:.6rem; align-items:baseline}
+.finding h3 .tag{
+  flex:0 0 auto; font:700 .7rem/1.6 ui-sans-serif,system-ui,sans-serif; letter-spacing:.08em;
+  background:var(--flag-soft); color:var(--flag); padding:0 .5rem; border-radius:.25rem
+}
+.finding.usability h3 .tag{background:var(--accent-soft); color:var(--accent)}
+.finding p:last-child{margin-bottom:0}
+.finding .evidence{
+  font:400 .93rem/1.55 ui-sans-serif,system-ui,sans-serif; color:var(--ink-soft);
+  border-left:2px solid var(--rule-strong); padding-left:.8rem; margin:.7rem 0 0
+}
+.rec{border:1px solid var(--rule); border-left:4px solid var(--ok); background:var(--ok-soft);
+  border-radius:.5rem; padding:1rem 1.15rem; margin:0 0 1rem}
+.rec h3{margin:0 0 .4rem; font-size:1.05rem}
+.rec p:last-child{margin-bottom:0}
+
+/* ---- tables ---- */
+.tablewrap{overflow-x:auto; -webkit-overflow-scrolling:touch; margin:0 0 1.2rem;
+  border:1px solid var(--rule); border-radius:.5rem; background:var(--panel)}
+table{border-collapse:collapse; width:100%; min-width:34rem;
+  font:400 .97rem/1.5 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+th,td{text-align:left; padding:.6rem .8rem; border-bottom:1px solid var(--rule); vertical-align:top}
+th{font-weight:600; background:var(--accent-soft); color:var(--ink)}
+tr:last-child td{border-bottom:none}
+
+/* ---- captions & notes: 22px per house style ---- */
+figcaption,.caption{
+  font:400 22px/1.45 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  color:var(--ink-soft); margin:.6rem 0 1.4rem
+}
+.notice{
+  border:1px dashed var(--rule-strong); border-radius:.5rem; padding:.9rem 1.05rem;
+  margin:0 0 1.4rem; background:var(--panel);
+  font:400 .97rem/1.6 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif; color:var(--ink-soft)
+}
+.notice strong{color:var(--ink)}
+
+/* ---- provenance ---- */
+.prov{border:1px solid var(--rule); border-left:4px solid var(--rule-strong); border-radius:.5rem;
+  background:var(--panel); padding:1.1rem 1.25rem; margin:0 0 1.2rem}
+.prov h3{margin:0 0 .5rem; font-size:1.05rem}
+.prov p:last-child{margin-bottom:0}
+blockquote.prompt{
+  margin:.6rem 0 0; padding:.85rem 1rem; background:var(--accent-soft); border-radius:.4rem;
+  border-left:3px solid var(--accent);
+  font:400 .95rem/1.6 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  white-space:pre-wrap; overflow-wrap:break-word; word-break:normal; color:var(--ink)
+}
+footer.site{border-top:1px solid var(--rule); background:var(--panel); padding:1.6rem 0 2.4rem;
+  font:400 .92rem/1.6 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif; color:var(--ink-soft)}
+footer.site p{margin:0 0 .5rem; max-width:70ch}
+
+@media (max-width:640px){
+  body{font-size:1.02rem}
+  .wrap{padding:0 .95rem}
+  ul.sections a.sec{flex-direction:column; gap:.15rem}
+  ul.sections .num{flex:none}
+  .faq .answer{padding-left:1.1rem}
+  figcaption,.caption{font-size:22px}
+}
+
+@media print{
+  nav.pages,button.pdf,.backlink,.noprint{display:none !important}
+  body{background:#fff; color:#000; font-size:11pt}
+  .wrap{max-width:none; padding:0}
+  .faq{border:none; page-break-inside:avoid; margin-bottom:.5rem}
+  .faq summary{padding:.2rem 0}
+  .faq summary::before{content:"" !important}
+  .faq .answer{display:block !important; border-top:1px solid #ccc; padding:.3rem 0 .3rem 0}
+  details:not([open]) .answer{display:block !important}
+  details::details-content{content-visibility:visible !important; block-size:auto !important}
+  article.sec,.finding,.rec{page-break-inside:avoid; border:1px solid #bbb; background:#fff}
+  .tablewrap{overflow:visible; page-break-inside:avoid; border:1px solid #bbb}
+  table{min-width:0; width:100%}
+  .notice{page-break-inside:avoid}
+  .prov{page-break-inside:auto; border:1px solid #bbb; background:#fff}
+  blockquote.prompt{background:#f4f4f4; border-left:3px solid #999; font-size:9.5pt}
+  a{color:#000; text-decoration:none}
+  a[href^="http"]::after{content:" (" attr(href) ")"; font-size:8pt; color:#555}
+  h2{page-break-after:avoid}
+  figcaption,.caption{font-size:12pt}
+}
+
+</style>
+</head>
+<body>
+<header class="masthead">
+  <div class="wrap">
+    <p class="eyebrow">City of Worland, Wyoming &middot; Unofficial plain-language edition</p>
+    <h1>Audit: structure and usability</h1>
+    <p class="standfirst">What a resident runs into when they try to answer a simple question about their dog using the City’s official code website — and what in the code itself makes that hard.</p>
+  </div>
+</header>
+<nav class="pages" aria-label="Site pages">
+  <div class="wrap">
+    <a href="index.html">Dog Laws Index</a>
+    <a href="ordinances.html">Ordinance Text</a>
+    <a href="audit.html" aria-current="page">Audit Report</a>
+    <span class="spacer"></span>
+    <button class="pdf" type="button" onclick="window.print()">Save this page as PDF</button>
+  </div>
+</nav>
+<main>
+  <div class="wrap">
+<div class="notice">
+  <strong>Scope and method.</strong> On 25 August 2026 the City of Worland Code of Ordinances was read in full at
+  <a href="https://library.municode.com/wy/worland/codes/code_of_ordinances">library.municode.com/wy/worland</a>
+  (site version dated 27 October 2025), together with keyword searches for <em>dog</em>, <em>animal</em>,
+  <em>park</em>, <em>barking</em> and the chapter facet listing. Findings below are drawn from what the site
+  actually returned. Three things were <em>not</em> tested and are not claimed: assistive-technology behaviour with
+  a screen reader, the output of the site&rsquo;s own DOCX and PDF download buttons, and whether the City posts
+  additional rules on signs at individual parks. Where a conclusion rests on inference rather than observation, it
+  says so.
+</div>
+
+<h2>Part one &mdash; structure of the ordinances</h2>
+<p class="lede">These are inconsistencies in the law as codified, not in the website. They would survive any
+redesign, and several of them are the reason the website is hard to use.</p>
+
+<div class="finding">
+  <h3><span class="tag">S1</span> The article called &ldquo;Dogs&rdquo; contains the least of the dog law.</h3>
+  <p>Chapter 4 is divided into five articles. Article III is headed <em>DOGS</em>. It holds four live sections:
+  vicious dogs, vaccination, impoundment of unlicensed dogs, and bite confinement. Everything a dog owner is most
+  likely to need is somewhere else &mdash; the leash rule, the impound fee, the destruction rule, waste, barking,
+  nuisance and kennels are all in Article I (&ldquo;In General&rdquo;), and licensing is in Article IV.</p>
+  <p class="evidence">A reader who follows the table of contents to <em>Article III &mdash; Dogs</em>, which is the
+  obvious move, will not find the leash law, the licence fee, or what happens if their dog is picked up.</p>
+</div>
+
+<div class="finding">
+  <h3><span class="tag">S2</span> Two definitions of &ldquo;at large,&rdquo; and one of them excludes dogs.</h3>
+  <p>Sec. 4-1(A) defines <em>animal</em> as all animals &ldquo;with the exception of dogs and cats,&rdquo; and defines
+  <em>at large</em> as not under the owner&rsquo;s <em>immediate control</em>. Sec. 4-1-1 defines <em>at large</em>
+  again for dogs and cats, as not under control &ldquo;by leash, cord, chain or otherwise.&rdquo; Two different
+  tests, forty-five words apart.</p>
+  <p class="evidence">The consequence surfaces in Sec. 4-2 (Cruelty to animals), which makes it unlawful &ldquo;to
+  allow any <em>animal</em> to run at large in the City.&rdquo; On the chapter&rsquo;s own definition, that clause
+  does not reach dogs. The prohibition that does reach dogs sits in a different section under a different test.</p>
+</div>
+
+<div class="finding">
+  <h3><span class="tag">S3</span> Two impoundment regimes that count the same three days differently.</h3>
+  <p>Sec. 4-1-4: a dog not redeemed &ldquo;within three days after the date of impoundment&rdquo; is destroyed or
+  otherwise appropriately disposed of. Sec. 4-24: a dog taken for want of a licence or vaccination tag is kept
+  &ldquo;at least three days, exclusive of the day of capture,&rdquo; then &ldquo;exterminated or destroyed and
+  their bodies buried beyond the City limits.&rdquo;</p>
+  <p class="evidence">Different start point, different floor-versus-ceiling framing, different disposal method, and
+  no cross-reference in either direction. A dog picked up while at large <em>and</em> unlicensed falls under both.
+  The Code does not say which governs.</p>
+</div>
+
+<div class="finding">
+  <h3><span class="tag">S4</span> An enforcement officer who does not exist in the Code.</h3>
+  <p>The 2025 amendment to Sec. 4-25 gives discretion over home quarantine to &ldquo;the Animal Control Officer or
+  Peace Officer.&rdquo; No Animal Control Officer is created, appointed, or defined anywhere in the Code.</p>
+  <p class="evidence">Sec. 2-1 lists the officers the Mayor appoints &mdash; City Attorney, Clerk-Treasurer, Chief of
+  Police, Municipal Judge, City Engineer, Superintendent of Public Works, Airport Manager. Animal control appears in
+  Sec. 2-1(E) only as one of thirteen subject areas that <em>Municipal Ordinance Officers</em> may write citations
+  for. Meanwhile Secs. 4-1, 4-1-3, 4-6, 4-7-3 and 4-7-4 assign the work variously to the Chief of Police, to
+  &ldquo;every police officer,&rdquo; and to persons &ldquo;designated by the City.&rdquo; Four labels, one job.</p>
+</div>
+
+<div class="finding">
+  <h3><span class="tag">S5</span> No parks chapter exists, so dogs in parks have no home.</h3>
+  <p>The Worland City Code has no parks and recreation chapter. Parks appear incidentally: as a place where animal
+  waste must be removed (Sec. 4-3), and in the Chapter 22 definition of &ldquo;park trees.&rdquo;</p>
+  <p class="evidence">The result is that a common, entirely reasonable question &mdash; may I take my dog to the park,
+  and on what terms &mdash; has no addressable answer in the Code. It has to be assembled from the leash rule, the
+  waste rule and the nuisance rule, none of which mentions parks except the second. By contrast the airport, a far
+  less-visited public place, has its own express pet provision.</p>
+</div>
+
+<div class="finding">
+  <h3><span class="tag">S6</span> The same duty enacted twice, with different consequences.</h3>
+  <p>Sec. 4-3 makes failing to remove a dog&rsquo;s excreta from public walks, public ways, parks, recreation areas
+  or another person&rsquo;s property unlawful. Sec. 4-7-2(A)(5)(c) makes essentially the same failure a
+  <em>public nuisance</em>, in near-identical wording, with &ldquo;public ways&rdquo; and &ldquo;parks&rdquo; dropped
+  from the list.</p>
+  <p class="evidence">This is not harmless duplication. A public nuisance counts towards Sec. 4-7-3&rsquo;s
+  three-violation rule, which ends in mandatory destruction or relocation of the animal. The same act therefore
+  carries two different exposures depending on which section is charged, and the two lists of places are not the
+  same.</p>
+</div>
+
+<div class="finding">
+  <h3><span class="tag">S7</span> The gravest power in the chapter has the least procedure.</h3>
+  <p>Sec. 4-15 (enacted 1950) lets the municipal judge order a dog killed on conviction of its owner. It contains no
+  definition of &ldquo;notoriously vicious or cross,&rdquo; no hearing on the dog&rsquo;s behaviour, no notice, no
+  appeal, and no alternative such as a dangerous-dog registration or a secure-enclosure order. Sec. 4-7-3 imposes
+  destruction or relocation after three nuisance violations, without defining what a &ldquo;violation&rdquo; is
+  &mdash; a complaint, a citation, or a conviction.</p>
+  <p class="evidence">Compare Sec. 4-30, the 2022 chickens ordinance: written application, thirty-day determination,
+  conditional approval, revocation on specified grounds, written notice of revocation, ten-day written appeal to the
+  City Council, forty-five-day decision. The newest provision in the chapter is procedurally the most careful; the
+  one that can destroy a family&rsquo;s animal is seventy-six years old and has none of it.</p>
+</div>
+
+<div class="finding">
+  <h3><span class="tag">S8</span> Three numbering systems in one chapter, none of them the Code&rsquo;s own.</h3>
+  <p>Chapter 4 runs 4-1, 4-2, 4-3&hellip; and simultaneously 4-1-1 through 4-1-4 and 4-7-1 through 4-7-5. The
+  Code&rsquo;s own Preface states the rule for inserting new material between two sections: use the decimal system,
+  so that a section between 6-1 and 6-2 becomes 6-1.5.</p>
+  <p class="evidence">Chapter 4 ignores it. The effect is that Sec. 4-1-3 and Sec. 4-24 &mdash; both about impounding
+  dogs &mdash; look like they belong to different topics, and Sec. 4-7-1 (kennels) looks like a subdivision of
+  Sec. 4-7 (releasing impounded animals), which it has nothing to do with.</p>
+</div>
+
+<div class="finding">
+  <h3><span class="tag">S9</span> A third of the dog sections are empty shells still shown to readers.</h3>
+  <p>Reserved or repealed within Chapter 4: 4-5, 4-9, 4-11, 4-13, 4-14, 4-16, 4-18, 4-19 through 4-23, and 4-27
+  through 4-29.</p>
+  <p class="evidence">The sharpest case is Sec. 4-18, catchlined &ldquo;License; required,&rdquo; repealed in 2013,
+  still displayed in the table of contents under <em>DOGS</em>. A resident looking for the licensing rule sees
+  exactly the heading they want, clicks it, and gets a repeal note. The live rule, Sec. 4-26, is in a different
+  article with no pointer from 4-18 to it.</p>
+</div>
+
+<div class="finding">
+  <h3><span class="tag">S10</span> Fees and penalties are scattered, and one is fifty years stale.</h3>
+  <p>$50 impound redemption (4-1-3); a minimum board bill of $2.00 for small animals (4-1(F), set in 1978 and never
+  revised); $50 surcharge above ten animals (4-4); $12.50 and $35.00 licence fees (4-26); a $750 maximum fine and
+  $10 costs (1-7, in a different chapter). There is no fee schedule anywhere in the Code, and no section in
+  Chapter 4 links to Sec. 1-7 even though five of them are governed by it.</p>
+</div>
+
+<div class="finding">
+  <h3><span class="tag">S11</span> Cats and dogs are split apart, then merged, then defined by each other.</h3>
+  <p>Article II is cats, Article III is dogs, Article IV licenses both together, and Article I governs both without
+  saying so in its heading. Sec. 4-10 then defines cat impoundment entirely by reference to dogs &mdash; cats
+  &ldquo;may be captured, impounded, and destroyed in the same manner as dogs.&rdquo;</p>
+  <p class="evidence">A cat owner must read the dog article to learn the rule for cats; a dog owner must read the
+  general article and the licensing article to learn the rules for dogs. Neither can rely on the article headed with
+  their animal.</p>
+</div>
+
+<div class="finding">
+  <h3><span class="tag">S12</span> The zoning chapter borrows a definition that does not exist in the singular.</h3>
+  <p>Sec. 24-7 (Zoning definitions) provides that &ldquo;animal&rdquo; has the same meaning as in Chapter 4. Chapter 4
+  supplies two competing meanings &mdash; the Sec. 4-1(A) definition that excludes dogs and cats, and the Sec. 4-7-3
+  definition of &ldquo;owner&rdquo; that assumes they are included. The cross-reference does not say which.</p>
+</div>
+
+<div class="finding">
+  <h3><span class="tag">S13</span> Barking is a nuisance in the animals chapter and invisible in the noise chapter.</h3>
+  <p>Worland has a Chapter 14A devoted to noise. Searching the whole code for <em>animal</em> returns no hit in
+  Chapter 14A. Barking is regulated only at Sec. 4-7-2(A)(1), in undefined terms &mdash; &ldquo;excessive,
+  continuous or untimely&rdquo; &mdash; with no decibel standard, no quiet hours, and no complaint procedure. Neither
+  chapter cross-references the other.</p>
+</div>
+
+<div class="finding">
+  <h3><span class="tag">S14</span> The Code&rsquo;s stated organising principle does not hold.</h3>
+  <p>The Preface says the chapters &ldquo;have been conveniently arranged in alphabetical order.&rdquo; Chapter 11 is
+  <em>Solid Waste and Maintenance of Premises</em>, sitting between Chapter 10A <em>Flood Damage Prevention</em> and
+  Chapter 13 <em>Licenses</em>. Chapter numbers 6, 9, 10, 12, 18 and 21 do not appear at all; six chapters carry
+  letter suffixes (2A, 7A, 10A, 14A, 18A, 21A) because they were inserted later.</p>
+  <p class="evidence">Alphabetical order is what lets a reader guess where something lives without using search. Once
+  it is broken and unmarked, browsing stops working and every visitor is pushed into a search box &mdash; which,
+  as Part two shows, is where the trouble starts.</p>
+</div>
+
+<h2>Part two &mdash; barriers for a visitor of average computer skill</h2>
+<p class="lede">The test applied here: an ordinary Worland resident, on a phone or a home laptop, who wants to know
+whether their dog needs a licence and whether it can be off the lead in the park. Nothing exotic &mdash; no screen
+reader, no developer tools, no legal training.</p>
+
+<div class="finding usability">
+  <h3><span class="tag">U1</span> Search matches letters, not meaning.</h3>
+  <p>Searching the code for <strong>park</strong> returns 57 results. The first several are Sec. 14-13 (vehicle
+  parking), Sec. 14-11 (stopping, standing and parking), Sec. 14-5-3 (tractor trailer parking), Sec. 14-10 (limited
+  parking zones), Sec. 24-10-12 (off-street parking). Chapter 14 alone accounts for ten of them. Searching
+  <strong>barking</strong> returns Sec. 24-17-7, a zoning table of landscape materials priced by the hundred square
+  feet of &ldquo;decorative stone, rock or bark,&rdquo; ranked above the barking-dog nuisance.</p>
+  <p class="evidence">This is the single most damaging thing about the site for a lay user. The two most natural
+  words a dog owner would type &mdash; <em>park</em> and <em>barking</em> &mdash; both return mostly noise, and there
+  is no indication to the user that anything has gone wrong. They will conclude the rule does not exist.</p>
+</div>
+
+<div class="finding usability">
+  <h3><span class="tag">U2</span> Nothing on the site answers a question; it only locates text.</h3>
+  <p>There is no FAQ, no plain-language summary, no fee table, no &ldquo;what happens if my dog is picked up&rdquo;
+  page, no licence application form, no counter hours, and no phone number anywhere in the code content. A
+  successful search hands the user a 1962 sentence about keeping an animal &ldquo;securely confined on his
+  premises&rdquo; and leaves the interpreting to them.</p>
+  <p class="evidence">To answer the leash question correctly a reader must combine Sec. 4-1-2 with the definition in
+  Sec. 4-1-1, notice that Sec. 4-1 uses a different definition that excludes dogs, and then find Sec. 1-7 in another
+  chapter for the penalty. That is four documents for one question.</p>
+</div>
+
+<div class="finding usability">
+  <h3><span class="tag">U3</span> The address of a section is unusable by a human being.</h3>
+  <p>The link to the bite-confinement rule is
+  <code style="word-break:break-all;font-size:.85em">&hellip;?nodeId=CH4ANFO_ARTIIIDO_S4-25CODOHABIPE</code>.
+  It cannot be typed from memory, read aloud over a phone, written on a notice, or recognised when pasted into a
+  message. There is no short citation URL of the form <em>/4-25</em>.</p>
+  <p class="evidence">Practical effect: a City employee cannot easily tell a resident where to look, and a resident
+  cannot easily show a neighbour what they found. Verified by observation: opening a section link loads the entire
+  chapter and scrolls to the section, so the browser&rsquo;s back button and the page title both refer to the
+  chapter, not to what the user is reading.</p>
+</div>
+
+<div class="finding usability">
+  <h3><span class="tag">U4</span> A third of the screen is a table of contents the reader did not ask for.</h3>
+  <p>The reading view is two panes: a persistent hierarchical contents tree on the left, the ordinance text on the
+  right. On a 1282-pixel-wide window the tree occupies roughly 440 pixels, about a third. Both panes scroll
+  independently, so the mouse wheel does different things depending on where the pointer happens to be.</p>
+  <p class="evidence">On a phone this layout has to collapse, which means the contents tree becomes a hidden menu and
+  the reader loses the only navigational cue the interface offers. This finding is based on the desktop layout as
+  observed; the phone rendering was not captured directly and the conclusion about it is inference.</p>
+</div>
+
+<div class="finding usability">
+  <h3><span class="tag">U5</span> Every section is buried under five identical buttons.</h3>
+  <p>Each heading &mdash; chapter, article and section alike &mdash; carries the same row of controls: share link,
+  print, download DOCX, email, compare versions. On the Chapter 4 page that row repeats more than forty times.</p>
+  <p class="evidence">In the page&rsquo;s plain-text form the phrase &ldquo;SHARE LINK TO SECTION / PRINT SECTION /
+  DOWNLOAD (DOCX) OF SECTIONS / EMAIL SECTION / COMPARE VERSIONS&rdquo; appears between every pair of provisions.
+  For anyone reading linearly &mdash; by screen reader, by text browser, or by copy-and-paste into a document &mdash;
+  the controls outnumber the law. Screen-reader behaviour itself was not tested.</p>
+</div>
+
+<div class="finding usability">
+  <h3><span class="tag">U6</span> The download that is offered is the wrong format.</h3>
+  <p>The per-section download button produces a Word DOCX file. A whole-publication PDF is offered separately, for
+  the entire code. There is no way to take away just the dog provisions as a PDF, which is the format most people
+  can open on a phone, attach to an email, or hand to someone.</p>
+</div>
+
+<div class="finding usability">
+  <h3><span class="tag">U7</span> Results are paginated ten at a time, and the control that changes that is below the fold.</h3>
+  <p>A 17-result search for <em>dog</em> is split across two pages; a 26-result search for <em>animal</em> across
+  three. The &ldquo;Results per page&rdquo; selector sits underneath the pagination at the very bottom. Adding a
+  results-per-page parameter to the URL had no effect when tried.</p>
+  <p class="evidence">A user cannot see all the dog provisions on one screen at any point in the process &mdash; not
+  in search, and not in the contents tree, which shows one chapter at a time.</p>
+</div>
+
+<div class="finding usability">
+  <h3><span class="tag">U8</span> It is genuinely hard to tell what is current.</h3>
+  <p>The reading pane is stamped &ldquo;VERSION: OCT 27, 2025 (CURRENT).&rdquo; The Code&rsquo;s own title page says
+  &ldquo;Published in 2021.&rdquo; The Preface describes a looseleaf binder supplement service and instructs the
+  holder to insert replacement pages. Individual sections carry a small blue &ldquo;modified&rdquo; badge, and
+  Sec. 4-25 carries one with an effective date of 17 May 2025.</p>
+  <p class="evidence">Four different currency signals, in three registers, none of which says plainly: <em>this text
+  is in force today</em>. The looseleaf instructions are addressed to someone who does not exist &mdash; a person
+  holding a physical binder &mdash; and appear on the front page of a website.</p>
+</div>
+
+<div class="finding usability">
+  <h3><span class="tag">U9</span> Translation is machine translation of criminal law.</h3>
+  <p>The page offers a Google Translate widget listing roughly two hundred languages. Nothing visible beside it
+  warns the reader that a machine translation of an ordinance is not the enacted text and cannot be relied on.</p>
+  <p class="evidence">A Spanish-speaking resident in Worland gets a translation of a sentence that already requires
+  three other sections to interpret. The failure mode is invisible: the translated text reads fluently and is wrong
+  about the thing that matters.</p>
+</div>
+
+<div class="finding usability">
+  <h3><span class="tag">U10</span> The penalty is never where the rule is.</h3>
+  <p>Five provisions relevant to dogs end with &ldquo;shall be punished as provided in Section 1-7 of this
+  Code.&rdquo; On the site, none of them links to Sec. 1-7. The reader has to leave Chapter 4, open Chapter 1, and
+  scroll to the seventh section.</p>
+  <p class="evidence">Sec. 4-1-2, the leash rule itself, does not even do that much &mdash; it states no penalty at
+  all. The chain from &ldquo;my dog was off the lead&rdquo; to &ldquo;the fine is up to $750 and each day counts
+  separately&rdquo; runs through Sec. 4-7-5 to Sec. 1-7, and is nowhere set out.</p>
+</div>
+
+<h2>Part three &mdash; what would fix it</h2>
+<p class="lede">Ordered by benefit per unit of effort. The first three need no ordinance amendment at all.</p>
+
+<div class="rec">
+  <h3>1. Publish a one-page dog guide on the City website.</h3>
+  <p>Licence fees and deadline, leash rule, waste rule, what happens at impound, the vaccination requirement, and a
+  phone number. One page, plain sentences, linked from the code. This addresses U1, U2, U6 and U10 at once and costs
+  nothing legally &mdash; the pages you are reading are a working demonstration of the format.</p>
+</div>
+
+<div class="rec">
+  <h3>2. Add short, human citation links.</h3>
+  <p>A redirect so that <em>worlandwy.gov/code/4-26</em> reaches the licensing section would make it possible for a
+  clerk to say the address out loud and for a resident to write it down. This is a redirect table, not a rebuild.</p>
+</div>
+
+<div class="rec">
+  <h3>3. State the currency of the text in one plain sentence.</h3>
+  <p>&ldquo;This text is in force as of [date]. Ordinances adopted after that date are listed here.&rdquo; Remove or
+  relabel the looseleaf binder instructions, which no longer describe how anyone reads this code.</p>
+</div>
+
+<div class="rec">
+  <h3>4. Consolidate the dog provisions into the article named Dogs.</h3>
+  <p>Move the leash rule, impoundment, destruction, waste, nuisance and kennel provisions as they apply to dogs into
+  Article III, or renumber the chapter so that Article I is expressly the general article for all animals including
+  dogs. Resolve the two &ldquo;at large&rdquo; definitions into one. This is the fix for S1, S2 and S8.</p>
+</div>
+
+<div class="rec">
+  <h3>5. Reconcile the two impoundment tracks, and settle who enforces.</h3>
+  <p>One holding period, one method of counting it, one disposal rule, with a cross-reference between the sections
+  that survive. Define the Animal Control Officer, or amend Sec. 4-25 to name an office that exists. S3 and S4.</p>
+</div>
+
+<div class="rec">
+  <h3>6. Give the vicious-dog power a procedure.</h3>
+  <p>Define the standard, provide notice to the owner, a hearing on the dog&rsquo;s behaviour, and an appeal &mdash;
+  at least what the 2022 chicken ordinance already provides for a coop. Define what counts as a
+  &ldquo;violation&rdquo; for the three-strikes rule in Sec. 4-7-3. S7.</p>
+</div>
+
+<div class="rec">
+  <h3>7. Decide the parks question expressly.</h3>
+  <p>Whether dogs are permitted, on lead, in which parks, and whether any area is off-lead, belongs in the Code
+  rather than on a sign. If park rules are currently posted administratively, say so in the Code and say where they
+  can be read. S5.</p>
+</div>
+
+<div class="rec">
+  <h3>8. Retire the empty sections, or point them somewhere.</h3>
+  <p>At minimum, make Sec. 4-18 say &ldquo;repealed; see Sec. 4-26&rdquo; rather than showing a reader the heading
+  they want and then nothing. S9.</p>
+</div>
+
+<h2>Appendix &mdash; the chapter list as published</h2>
+<div class="tablewrap">
+  <table>
+    <thead><tr><th scope="col">Ch.</th><th scope="col">Subject</th><th scope="col">Note</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>General Provisions</td><td>Contains Sec. 1-7, the penalty for most dog offences</td></tr>
+      <tr><td>2</td><td>Administration</td><td>Sec. 2-1 lists who enforces animal control</td></tr>
+      <tr><td>2A</td><td>Airports and Aircraft</td><td>Sec. 2A-22(E), the only place-specific dog rule</td></tr>
+      <tr><td>3</td><td>Alcoholic Beverages</td><td></td></tr>
+      <tr><td>4</td><td>Animals and Fowl</td><td>The dog chapter</td></tr>
+      <tr><td>5</td><td>Bicycles, Skateboards, Roller Skates and Rollerblades</td><td></td></tr>
+      <tr><td>7</td><td>Buildings and Construction</td><td>No Chapter 6</td></tr>
+      <tr><td>7A</td><td>Cemeteries</td><td></td></tr>
+      <tr><td>8</td><td>Courts, Fines and Imprisonment</td><td></td></tr>
+      <tr><td>10A</td><td>Flood Damage Prevention</td><td>No Chapter 9 or 10</td></tr>
+      <tr><td>11</td><td>Solid Waste and Maintenance of Premises</td><td>Out of alphabetical sequence</td></tr>
+      <tr><td>13</td><td>Licenses</td><td>No Chapter 12; does not cover dog licences</td></tr>
+      <tr><td>14</td><td>Motor Vehicles and Traffic</td><td>Source of most &ldquo;park&rdquo; search noise</td></tr>
+      <tr><td>14A</td><td>Noise</td><td>Contains nothing about animals</td></tr>
+      <tr><td>15</td><td>Offenses; Miscellaneous</td><td></td></tr>
+      <tr><td>16</td><td>Pawnbrokers</td><td></td></tr>
+      <tr><td>17</td><td>Peddlers, Transient Merchants and Itinerant Vendors</td><td></td></tr>
+      <tr><td>18A</td><td>Signs</td><td>No Chapter 18</td></tr>
+      <tr><td>19</td><td>Streets and Sidewalks</td><td></td></tr>
+      <tr><td>20</td><td>Subdivisions</td><td></td></tr>
+      <tr><td>21A</td><td>Telecommunications</td><td>No Chapter 21</td></tr>
+      <tr><td>22</td><td>Trees and Shrubbery</td><td>Defines &ldquo;park trees&rdquo;</td></tr>
+      <tr><td>23</td><td>Water and Sewers</td><td></td></tr>
+      <tr><td>24</td><td>Zoning</td><td>Sec. 24-7 borrows Chapter 4&rsquo;s definition of &ldquo;animal&rdquo;</td></tr>
+    </tbody>
+  </table>
+</div>
+<p class="caption">Twenty-four chapters, six of them added later with letter suffixes, six plain numbers unused, and
+no chapter for parks and recreation &mdash; which is why the question &ldquo;can my dog go to the park?&rdquo; has
+nowhere in this list to live.</p>
+
+<h2>Provenance</h2>
+<p class="lede">Recorded here so that anyone reading this audit can see exactly what was asked for, by what
+means it was produced, and how long it took &mdash; and can judge the result against the request.</p>
+
+<div class="prov">
+  <h3>The instruction that produced these pages</h3>
+  <p>Reproduced verbatim, as entered by the commissioning party on 25 August 2026:</p>
+  <blockquote class="prompt">Audit the part of the Worland, WY municipal website which presents ordinances to the public concerning dogs, from the main url, [https://library.municode.com/wy/worland/codes/code_of_ordinances], for structure and usability. Create an alternate static HTML website with three pages, with simple navigation between them. The first page, index.html, is a clickable index of ordinances relating to dogs, with, at the top, a section of Frequently Asked Questions, including, Leashing of Dogs, Licensing, and Dogs in City Parks. The second page is the text of the sections of the regulations cited by the index. The third page is an audit report of: the structure (highlighting logical inconsistencies), and barriers to website visitors of average computer skills to make use of the ordinance text. Make all pages optionally downloadable as PDF, and make the HTML code responsive. The three output html files go into /Users/gorehambury/Documents/Claude/Projects/worland-dog-law. Optimize all for upload as a github Page. Supply step-by-step instructions for uploading to an existing github repo, https://github.com/FB-Decipherer/worland-wy-dog-laws, where all existing files may be overwritten. The files should be publicly viewable.</blockquote>
+</div>
+
+<div class="prov">
+  <h3>How long it took</h3>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th scope="col">Phase</th><th scope="col">Elapsed</th></tr></thead>
+      <tbody>
+        <tr><td>Reading the Worland code through the Municode interface</td><td>about 10 minutes</td></tr>
+        <tr><td>Writing the stylesheet and the three pages</td><td>about 6&frac12; minutes</td></tr>
+        <tr><td>Verification &mdash; link checking, responsive rendering, PDF output, one bug fixed and re-tested</td><td>about 2 minutes</td></tr>
+        <tr><td>Delivery and notes</td><td>about 1&frac12; minutes</td></tr>
+        <tr><td><strong>Total</strong></td><td><strong>about 20 minutes</strong>, 19:08 to 19:29 UTC on 25 August 2026</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="caption">Timings are taken from the build workspace&rsquo;s own file timestamps. The boundary of the
+  research phase is inferred rather than measured, because reading a website leaves no file behind &mdash; it is
+  dated from the moment the first page file was created.</p>
+</div>
+
+<div class="prov">
+  <h3>How it was made, and what was checked</h3>
+  <p>The Municode site is a JavaScript application: requesting its pages directly returns an empty shell, so the
+  code was read by driving a real browser and taking the rendered text. Source consulted: the Worland Code of
+  Ordinances, site version dated 27 October 2025, read on 25 August 2026, together with whole-code searches for
+  <em>dog</em>, <em>animal</em>, <em>park</em> and <em>barking</em> and the chapter facet listing.</p>
+  <p>Before delivery: all 77 internal links and anchors were resolved (none broken); the three pages were rendered
+  at 390&nbsp;pixels and 1200&nbsp;pixels wide and confirmed to produce no horizontal scrolling at either size; and
+  each page was printed to PDF to confirm the print stylesheet suppresses navigation and expands every collapsed
+  FAQ entry. That last check caught a real fault &mdash; a browser will not print the contents of a closed
+  disclosure element on the strength of a stylesheet rule alone &mdash; which was fixed and re-tested rather than
+  shipped.</p>
+  <p>Three things were not tested and are not claimed anywhere in this report: assistive-technology behaviour with
+  a screen reader, the output of Municode&rsquo;s own DOCX and PDF download buttons, and whether the City of Worland
+  posts park rules on signs rather than by ordinance.</p>
+</div>
+
+<p class="backlink noprint"><a href="index.html">&larr; Back to the index and FAQ</a> &nbsp;&middot;&nbsp;
+<a href="ordinances.html">Read the ordinance text &rarr;</a></p>
+
+  </div>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <p><strong>This is not the official code.</strong> It is an unofficial, plain-language republication of
+    the dog-related provisions of the Code of the City of Worland, Wyoming, prepared to make them easier to
+    find and read. The controlling text is the one published by the City at
+    <a href="https://library.municode.com/wy/worland/codes/code_of_ordinances">library.municode.com/wy/worland</a>.
+    Where this edition and the official code differ, the official code governs.</p>
+    <p>Ordinance text reproduced here is the enacted law of the City of Worland and is in the public domain as a
+    government edict. Layout, plain-language summaries, groupings and commentary on these pages are original to
+    this edition. Source consulted: the City of Worland Code of Ordinances as displayed on Municode, version
+    dated 27 October 2025. Pages last built 25 August 2026.</p>
+    <p>Every page here prints cleanly: use <em>Save this page as PDF</em> and choose &ldquo;Save as PDF&rdquo; as the
+    destination in your browser&rsquo;s print dialog.</p>
+  </div>
+</footer>
+<script>
+(function () {
+  var D = function () { return document.querySelectorAll('details'); };
+  function openAll() { D().forEach(function (d) { d.dataset.wasOpen = d.open ? '1' : '0'; d.open = true; }); }
+  function restore() { D().forEach(function (d) { d.open = d.dataset.wasOpen === '1'; delete d.dataset.wasOpen; }); }
+  window.addEventListener('beforeprint', openAll);
+  window.addEventListener('afterprint', restore);
+  var mq = window.matchMedia && window.matchMedia('print');
+  if (mq && mq.addEventListener) { mq.addEventListener('change', function (e) { e.matches ? openAll() : restore(); }); }
+  document.querySelectorAll('button.pdf').forEach(function (b) {
+    b.addEventListener('click', function () { openAll(); });
+  });
+}());
+</script>
+</body>
+</html>

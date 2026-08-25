@@ -1,123 +1,574 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Worland Dog Law - Home</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
-  <style>
-    :root{
-      --paper:#e9edf1; --surface:#fbfcfd; --sunk:#e2e8ee;
-      --ink:#16202b; --ink-2:#4d5d6b; --ink-3:#71818f;
-      --rule:#c6d1da; --hair:#dbe3e9;
-      --stamp:#9e2f26; --stamp-soft:#f0e0dd;
-      --serif:"Zilla Slab",Georgia,"Times New Roman",serif;
-      --sans:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
-      --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
-    }
-    @media (prefers-color-scheme: dark){
-      :root:not([data-theme="light"]){
-        --paper:#111820; --surface:#18212b; --sunk:#141d26;
-        --ink:#e7edf3; --ink-2:#a3b3c1; --ink-3:#7e8f9d;
-        --rule:#2f3d4a; --hair:#26323d;
-        --stamp:#e8877a; --stamp-soft:#33211f;
-      }
-    }
-    :root[data-theme="dark"]{
-      --paper:#111820; --surface:#18212b; --sunk:#141d26;
-      --ink:#e7edf3; --ink-2:#a3b3c1; --ink-3:#7e8f9d;
-      --rule:#2f3d4a; --hair:#26323d;
-      --stamp:#e8877a; --stamp-soft:#33211f;
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;background:var(--paper);color:var(--ink);
-         font-family:var(--sans);font-size:16.5px;line-height:1.6;
-         -webkit-font-smoothing:antialiased}
-    .sheet{max-width:52rem;margin:0 auto;padding:44px 26px 80px;
-           display:flex;flex-direction:column;gap:44px}
-    .mast{display:flex;flex-direction:column;gap:13px;
-          border-top:3px solid var(--ink);padding-top:16px}
-    .meta{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;
-          color:var(--ink-2);display:flex;flex-wrap:wrap;gap:7px 15px;margin:0}
-    .meta .sep{color:var(--ink-3)}
-    h1{font-family:var(--serif);font-weight:700;font-size:clamp(34px,7vw,52px);
-       line-height:1.03;letter-spacing:-.015em;margin:0;text-wrap:balance}
-    .caption{font-size:22px;line-height:1.5;color:var(--ink-2);margin:0;max-width:34em}
-    h2{font-family:var(--serif);font-weight:600;font-size:15px;letter-spacing:.13em;
-       text-transform:uppercase;color:var(--ink-2);margin:0;
-       padding-bottom:9px;border-bottom:1px solid var(--rule)}
-    .nav-bar{background:var(--surface);border:1px solid var(--rule);padding:14px 20px;display:flex;gap:20px}
-    .nav-bar a{font-family:var(--mono);font-size:14px;color:var(--stamp);text-decoration:none;font-weight:600}
-    .nav-bar a:hover{text-decoration:underline}
-    .nav-bar a.active{color:var(--ink);text-decoration:none;border-bottom:2px solid var(--ink)}
-    section{display:flex;flex-direction:column;gap:20px;scroll-margin-top:20px}
-    p{margin:0}
-    b{font-weight:600}
-    .scope{background:var(--sunk);border:1px solid var(--rule);padding:20px 24px;
-           display:flex;flex-direction:column;gap:11px}
-    .scope p{font-size:16px;line-height:1.58;color:var(--ink-2)}
-    .scope b{color:var(--ink);font-weight:600}
-    .index{columns:2;column-gap:38px;column-rule:1px solid var(--hair)}
-    @media(max-width:620px){.index{columns:1}}
-    .ix{break-inside:avoid;display:flex;justify-content:space-between;gap:10px;
-        align-items:baseline;padding:5px 0;border-bottom:1px dotted var(--hair)}
-    .ix span:first-child{font-size:15.5px;color:var(--ink)}
-    .ix a{font-family:var(--mono);font-size:12.5px;color:var(--stamp);
-          text-decoration:none;white-space:nowrap;font-weight:500}
-    .ix a:hover{text-decoration:underline}
-    .ixhead{break-inside:avoid;font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;
-            text-transform:uppercase;color:var(--ink-3);
-            margin:16px 0 5px;padding-bottom:4px;border-bottom:1px solid var(--rule)}
-    @media (max-width:560px){
-      body{font-size:16px}
-      .sheet{padding:30px 18px 56px;gap:34px}
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Worland Dog Laws — Index and FAQ</title>
+<meta name="description" content="Plain-language answers and a complete index of the City of Worland, Wyoming ordinances that apply to dogs.">
+<meta name="robots" content="index,follow">
+<style>
+:root{
+  --bg:#fbfaf7; --panel:#ffffff; --ink:#1c1b19; --ink-soft:#4a4742;
+  --rule:#e2ded5; --rule-strong:#c9c3b6; --accent:#7c4a1e; --accent-soft:#f3ece2;
+  --link:#8a4b12; --flag:#8c2f2f; --flag-soft:#faeceb; --ok:#2f6b46; --ok-soft:#eaf3ed;
+  --max:74rem;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#16150f; --panel:#1e1d16; --ink:#eeeae0; --ink-soft:#b6b0a2;
+    --rule:#33312a; --rule-strong:#4a473d; --accent:#d69a5f; --accent-soft:#2a251c;
+    --link:#e0a86a; --flag:#e08b84; --flag-soft:#33201f; --ok:#8fc9a4; --ok-soft:#1d2a22;
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font:400 1.0625rem/1.65 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+}
+.wrap{max-width:var(--max); margin:0 auto; padding:0 1.25rem}
+a{color:var(--link)}
+a:hover{text-decoration:none}
+
+/* ---- masthead + nav ---- */
+.masthead{border-bottom:1px solid var(--rule); background:var(--panel)}
+.masthead .wrap{padding-top:1.5rem; padding-bottom:1.1rem}
+.eyebrow{
+  font:600 .74rem/1.2 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  letter-spacing:.16em; text-transform:uppercase; color:var(--accent); margin:0 0 .5rem
+}
+h1{font-size:clamp(1.65rem,4.4vw,2.5rem); line-height:1.15; margin:0 0 .5rem; letter-spacing:-.01em}
+.standfirst{margin:0; color:var(--ink-soft); font-size:1.06rem; max-width:60ch}
+nav.pages{border-bottom:1px solid var(--rule); background:var(--bg); position:sticky; top:0; z-index:20}
+nav.pages .wrap{display:flex; flex-wrap:wrap; gap:.35rem; padding-top:.5rem; padding-bottom:.5rem; align-items:center}
+nav.pages a{
+  font:600 .9rem/1 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  text-decoration:none; color:var(--ink-soft); padding:.55rem .8rem; border-radius:.4rem
+}
+nav.pages a:hover{background:var(--accent-soft); color:var(--ink)}
+nav.pages a[aria-current="page"]{background:var(--accent); color:#fff}
+@media (prefers-color-scheme:dark){nav.pages a[aria-current="page"]{color:#16150f}}
+.spacer{flex:1 1 auto}
+button.pdf{
+  font:600 .9rem/1 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  cursor:pointer; border:1px solid var(--rule-strong); background:var(--panel); color:var(--ink);
+  padding:.55rem .85rem; border-radius:.4rem
+}
+button.pdf:hover{background:var(--accent-soft)}
+
+main{padding:2rem 0 4rem}
+h2{
+  font-size:clamp(1.25rem,3vw,1.6rem); line-height:1.2; margin:2.6rem 0 .9rem;
+  padding-bottom:.45rem; border-bottom:2px solid var(--rule-strong); letter-spacing:-.01em
+}
+h2:first-child{margin-top:0}
+h3{font-size:1.12rem; margin:1.8rem 0 .5rem; line-height:1.3}
+p{margin:0 0 .9rem}
+.lede{font-size:1.1rem; color:var(--ink-soft)}
+
+/* ---- FAQ ---- */
+.faq{border:1px solid var(--rule); border-radius:.6rem; background:var(--panel); overflow:hidden; margin:0 0 1rem}
+.faq summary{
+  cursor:pointer; padding:1rem 1.1rem; font-weight:600; font-size:1.08rem;
+  list-style:none; display:flex; gap:.75rem; align-items:baseline
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::before{content:"+"; color:var(--accent); font-weight:700; flex:0 0 auto}
+.faq[open] summary::before{content:"–"}
+.faq summary:hover{background:var(--accent-soft)}
+.faq .answer{padding:0 1.1rem 1.1rem 2.6rem; border-top:1px solid var(--rule)}
+.faq .answer p:first-child{margin-top:.9rem}
+.cites{
+  margin:.6rem 0 0; padding:.6rem .8rem; background:var(--accent-soft); border-radius:.4rem;
+  font:400 .95rem/1.5 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+.cites strong{font-weight:600}
+
+/* ---- index list ---- */
+.group{margin:0 0 1.6rem}
+.group > h3{margin-top:1.4rem}
+ul.sections{list-style:none; margin:0; padding:0; border-top:1px solid var(--rule)}
+ul.sections li{border-bottom:1px solid var(--rule)}
+ul.sections a.sec{
+  display:flex; gap:.9rem; align-items:baseline; text-decoration:none; color:inherit;
+  padding:.7rem .55rem
+}
+ul.sections a.sec:hover{background:var(--accent-soft)}
+ul.sections .num{
+  flex:0 0 6.5rem; font:600 .92rem/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  color:var(--accent)
+}
+ul.sections .ttl{flex:1 1 auto}
+ul.sections .ttl small{display:block; color:var(--ink-soft); font-size:.9rem; font-family:ui-sans-serif,system-ui,sans-serif}
+li.repealed a.sec{opacity:.62}
+li.repealed .ttl small{color:var(--flag)}
+
+/* ---- ordinance text ---- */
+article.sec{
+  border:1px solid var(--rule); border-radius:.6rem; background:var(--panel);
+  padding:1.2rem 1.3rem; margin:0 0 1.1rem
+}
+article.sec:target{border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-soft)}
+article.sec h3{margin-top:0; font-size:1.16rem}
+article.sec h3 .n{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; color:var(--accent)}
+.sub{margin:0 0 .8rem 0; padding:0 0 0 1.6rem}
+.sub > li{margin:0 0 .7rem}
+.hist{
+  margin:.9rem 0 0; padding-top:.7rem; border-top:1px solid var(--rule);
+  font:400 .88rem/1.5 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif; color:var(--ink-soft)
+}
+.hist a{color:var(--link)}
+.backlink{font:600 .85rem/1 ui-sans-serif,system-ui,sans-serif}
+
+/* ---- audit findings ---- */
+.finding{border:1px solid var(--rule); border-left:4px solid var(--flag); border-radius:.5rem;
+  background:var(--panel); padding:1rem 1.15rem; margin:0 0 1rem}
+.finding.usability{border-left-color:var(--accent)}
+.finding h3{margin:0 0 .5rem; font-size:1.08rem; display:flex; gap:.6rem; align-items:baseline}
+.finding h3 .tag{
+  flex:0 0 auto; font:700 .7rem/1.6 ui-sans-serif,system-ui,sans-serif; letter-spacing:.08em;
+  background:var(--flag-soft); color:var(--flag); padding:0 .5rem; border-radius:.25rem
+}
+.finding.usability h3 .tag{background:var(--accent-soft); color:var(--accent)}
+.finding p:last-child{margin-bottom:0}
+.finding .evidence{
+  font:400 .93rem/1.55 ui-sans-serif,system-ui,sans-serif; color:var(--ink-soft);
+  border-left:2px solid var(--rule-strong); padding-left:.8rem; margin:.7rem 0 0
+}
+.rec{border:1px solid var(--rule); border-left:4px solid var(--ok); background:var(--ok-soft);
+  border-radius:.5rem; padding:1rem 1.15rem; margin:0 0 1rem}
+.rec h3{margin:0 0 .4rem; font-size:1.05rem}
+.rec p:last-child{margin-bottom:0}
+
+/* ---- tables ---- */
+.tablewrap{overflow-x:auto; -webkit-overflow-scrolling:touch; margin:0 0 1.2rem;
+  border:1px solid var(--rule); border-radius:.5rem; background:var(--panel)}
+table{border-collapse:collapse; width:100%; min-width:34rem;
+  font:400 .97rem/1.5 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+th,td{text-align:left; padding:.6rem .8rem; border-bottom:1px solid var(--rule); vertical-align:top}
+th{font-weight:600; background:var(--accent-soft); color:var(--ink)}
+tr:last-child td{border-bottom:none}
+
+/* ---- captions & notes: 22px per house style ---- */
+figcaption,.caption{
+  font:400 22px/1.45 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  color:var(--ink-soft); margin:.6rem 0 1.4rem
+}
+.notice{
+  border:1px dashed var(--rule-strong); border-radius:.5rem; padding:.9rem 1.05rem;
+  margin:0 0 1.4rem; background:var(--panel);
+  font:400 .97rem/1.6 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif; color:var(--ink-soft)
+}
+.notice strong{color:var(--ink)}
+
+/* ---- provenance ---- */
+.prov{border:1px solid var(--rule); border-left:4px solid var(--rule-strong); border-radius:.5rem;
+  background:var(--panel); padding:1.1rem 1.25rem; margin:0 0 1.2rem}
+.prov h3{margin:0 0 .5rem; font-size:1.05rem}
+.prov p:last-child{margin-bottom:0}
+blockquote.prompt{
+  margin:.6rem 0 0; padding:.85rem 1rem; background:var(--accent-soft); border-radius:.4rem;
+  border-left:3px solid var(--accent);
+  font:400 .95rem/1.6 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  white-space:pre-wrap; overflow-wrap:break-word; word-break:normal; color:var(--ink)
+}
+footer.site{border-top:1px solid var(--rule); background:var(--panel); padding:1.6rem 0 2.4rem;
+  font:400 .92rem/1.6 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif; color:var(--ink-soft)}
+footer.site p{margin:0 0 .5rem; max-width:70ch}
+
+@media (max-width:640px){
+  body{font-size:1.02rem}
+  .wrap{padding:0 .95rem}
+  ul.sections a.sec{flex-direction:column; gap:.15rem}
+  ul.sections .num{flex:none}
+  .faq .answer{padding-left:1.1rem}
+  figcaption,.caption{font-size:22px}
+}
+
+@media print{
+  nav.pages,button.pdf,.backlink,.noprint{display:none !important}
+  body{background:#fff; color:#000; font-size:11pt}
+  .wrap{max-width:none; padding:0}
+  .faq{border:none; page-break-inside:avoid; margin-bottom:.5rem}
+  .faq summary{padding:.2rem 0}
+  .faq summary::before{content:"" !important}
+  .faq .answer{display:block !important; border-top:1px solid #ccc; padding:.3rem 0 .3rem 0}
+  details:not([open]) .answer{display:block !important}
+  details::details-content{content-visibility:visible !important; block-size:auto !important}
+  article.sec,.finding,.rec{page-break-inside:avoid; border:1px solid #bbb; background:#fff}
+  .tablewrap{overflow:visible; page-break-inside:avoid; border:1px solid #bbb}
+  table{min-width:0; width:100%}
+  .notice{page-break-inside:avoid}
+  .prov{page-break-inside:auto; border:1px solid #bbb; background:#fff}
+  blockquote.prompt{background:#f4f4f4; border-left:3px solid #999; font-size:9.5pt}
+  a{color:#000; text-decoration:none}
+  a[href^="http"]::after{content:" (" attr(href) ")"; font-size:8pt; color:#555}
+  h2{page-break-after:avoid}
+  figcaption,.caption{font-size:12pt}
+}
+
+</style>
 </head>
 <body>
-
-<div class="sheet">
-  <header class="mast">
-    <p class="meta">
-      <span>City of Worland, Wyoming</span><span class="sep">/</span>
-      <span>Consolidated dog provisions</span><span class="sep">/</span>
-      <span>Current to Ord. 879 &middot; 17 May 2025</span>
-    </p>
-    <h1>Worland Dog Law</h1>
-    <p class="caption">Every provision in the municipal code that governs owning a dog, gathered out of scattered articles and set in one clear space.</p>
-  </header>
-
-  <nav class="nav-bar">
-    <a href="index.html" class="active">Home & Scope</a>
-    <a href="leash-laws.html">Leash Laws</a>
-    <a href="licensing.html">Licensing & Safety</a>
-  </nav>
-
-  <section>
-    <h2>Scope & Overview</h2>
-    <div class="scope">
-      <p>All twenty-five chapters of the code were checked. <b>The word &ldquo;dog&rdquo; appears in no chapter outside Chapter 4.</b> Every rule below is therefore drawn from Chapter 4 &mdash; Animals and Fowl &mdash; with two provisions pulled in by cross-reference.</p>
-      <p>Worth knowing: <b>Chapter 14A is the Noise chapter</b>, which includes distinct provisions regarding persistent animal noises and howling disturbances.</p>
-    </div>
-  </section>
-
-  <section>
-    <h2>Statute Directory</h2>
-    <div class="index">
-      <div class="ixhead">Control & Running At Large</div>
-      <div class="ix"><span>Running at large restrictions</span><a href="leash-laws.html">Sec. 4-4</a></div>
-      <div class="ix"><span>Leash attachments & collars</span><a href="leash-laws.html">Sec. 4-5</a></div>
-      
-      <div class="ixhead">Registration & Compliance</div>
-      <div class="ix"><span>City registration fees</span><a href="licensing.html">Sec. 4-12</a></div>
-      <div class="ix"><span>Rabies vaccination tags</span><a href="licensing.html">Sec. 4-18</a></div>
-      <div class="ix"><span>Bite quarantine (Ord. 879)</span><a href="licensing.html">Sec. 4-25</a></div>
-    </div>
-  </section>
+<header class="masthead">
+  <div class="wrap">
+    <p class="eyebrow">City of Worland, Wyoming &middot; Unofficial plain-language edition</p>
+    <h1>Dog laws in Worland, Wyoming</h1>
+    <p class="standfirst">Straight answers to the questions dog owners actually ask, and a complete index of every section of the Worland City Code that applies to dogs — each one linked to its full text.</p>
+  </div>
+</header>
+<nav class="pages" aria-label="Site pages">
+  <div class="wrap">
+    <a href="index.html" aria-current="page">Dog Laws Index</a>
+    <a href="ordinances.html">Ordinance Text</a>
+    <a href="audit.html">Audit Report</a>
+    <span class="spacer"></span>
+    <button class="pdf" type="button" onclick="window.print()">Save this page as PDF</button>
+  </div>
+</nav>
+<main>
+  <div class="wrap">
+<div class="notice">
+  <strong>What this is.</strong> Worland&rsquo;s dog rules are spread across four articles of one chapter of the
+  City Code, plus two sections in other chapters, with about a third of the numbered slots empty or repealed.
+  This page collects them in one place: plain answers first, then a complete index. Every citation links to the
+  full official wording on the <a href="ordinances.html">Ordinance Text</a> page.
 </div>
 
+<h2>Frequently asked questions</h2>
+
+<details class="faq" open>
+  <summary>Leashing of dogs &mdash; does Worland have a leash law?</summary>
+  <div class="answer">
+    <p>Yes, effectively. The rule is written as a confinement rule rather than a leash rule: every owner must keep
+    a dog <em>securely confined on their own premises</em>. The leash is the exception that lets you leave the
+    property &mdash; you may have your dog on the streets and public places of the City <em>when the dog is
+    controlled by a chain, cord or leash</em>.</p>
+    <p>There is no length limit on the leash, no voice-control exception, and no off-leash area anywhere in the
+    Code. A dog off your property and not on a leash, cord or chain is &ldquo;at large,&rdquo; and any police
+    officer has a duty to pick it up.</p>
+    <p>A female dog in season must be confined so that other dogs cannot reach her.</p>
+    <p class="cites"><strong>Where it says so:</strong>
+      <a href="ordinances.html#s4-1-2">Sec. 4-1-2</a> (the rule) &middot;
+      <a href="ordinances.html#s4-1-1">Sec. 4-1-1</a> (what &ldquo;at large&rdquo; means) &middot;
+      <a href="ordinances.html#s4-1-3">Sec. 4-1-3</a> (what happens if your dog is picked up)</p>
+  </div>
+</details>
+
+<details class="faq">
+  <summary>Licensing &mdash; who needs a licence, when, and what does it cost?</summary>
+  <div class="answer">
+    <p>Every dog <strong>five months of age or older</strong> must be licensed for each calendar year. Licences run
+    1 January to 31 December. It is an offence to keep an unlicensed dog in the City <strong>after 31
+    January</strong>.</p>
+    <div class="tablewrap">
+      <table>
+        <caption class="noprint" style="caption-side:top;text-align:left;padding:.6rem .8rem;font-weight:600">Annual dog licence fees</caption>
+        <thead><tr><th scope="col">Dog</th><th scope="col">Fee per year</th></tr></thead>
+        <tbody>
+          <tr><td>Neutered male or spayed female</td><td>$12.50</td></tr>
+          <tr><td>Unneutered male or unspayed female</td><td>$35.00</td></tr>
+          <tr><td>Surcharge if you keep more than ten dogs and cats combined</td><td>$50.00 on top of the ordinary fees, due by 31 January</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>Before</strong> a licence is issued you must show proof of current rabies vaccination. You get two
+    tags from the City Treasurer &mdash; a numbered licence tag and a separate vaccination tag in a different
+    colour or design &mdash; and the Code says both are to be worn by the dog at all times. If you acquire a dog
+    part-way through the year, the fee is prorated from the date you got it. Proof that the dog is spayed or
+    neutered must be produced at the time of licensing to get the lower fee.</p>
+    <p>If you are cited for a first offence and then licence the dog, the charge is dismissed.</p>
+    <p>Litters of legally bred, properly licensed pets do not count towards the ten-animal threshold until they
+    reach four months old.</p>
+    <p class="cites"><strong>Where it says so:</strong>
+      <a href="ordinances.html#s4-26">Sec. 4-26</a> (licence requirements and fees) &middot;
+      <a href="ordinances.html#s4-17">Sec. 4-17</a> (rabies vaccination) &middot;
+      <a href="ordinances.html#s4-4">Sec. 4-4</a> (more than ten animals) &middot;
+      <a href="ordinances.html#s4-24">Sec. 4-24</a> (impoundment of unlicensed dogs)</p>
+  </div>
+</details>
+
+<details class="faq">
+  <summary>Dogs in city parks &mdash; are they allowed?</summary>
+  <div class="answer">
+    <p>Yes &mdash; on a leash. There is no ordinance that bans dogs from Worland&rsquo;s parks, and equally there is
+    no ordinance that grants them access, sets park hours for dogs, or creates an off-leash area. In fact the
+    Worland City Code has <strong>no parks and recreation chapter at all</strong>.</p>
+    <p>So parks are governed by the general rules. A park is a public place, which means the leash rule in
+    Sec. 4-1-2 applies: the dog must be on a chain, cord or leash. Parks and recreation areas are named
+    explicitly in the waste rule, so you must pick up after your dog there. And a dog that molests people or
+    passing bicycles, or barks excessively, is a public nuisance wherever it does it.</p>
+    <p>Two cautions, stated plainly because the Code does not settle them. First, the City may post rules at
+    individual parks &mdash; signs, hours, ballfield restrictions &mdash; that are adopted administratively rather
+    than by ordinance; those would not appear in the Code and are not reflected here. Second, the airport is
+    the one public place with its own dog rule, and it is stricter: see below.</p>
+    <p class="cites"><strong>Where it says so:</strong>
+      <a href="ordinances.html#s4-1-2">Sec. 4-1-2</a> (leash in public places) &middot;
+      <a href="ordinances.html#s4-3">Sec. 4-3</a> (waste in parks and recreation areas) &middot;
+      <a href="ordinances.html#s4-7-2">Sec. 4-7-2</a> (nuisance behaviour) &middot;
+      <a href="ordinances.html#s2a-22">Sec. 2A-22(E)</a> (airport)</p>
+  </div>
+</details>
+
+<details class="faq">
+  <summary>Picking up after your dog</summary>
+  <div class="answer">
+    <p>You must remove what your dog deposits on public walks, public ways, parks, recreation areas, and on
+    private property that is not yours. Failing to do so is expressly unlawful.</p>
+    <p>The same duty is written a second time, in almost the same words, as a &ldquo;public nuisance&rdquo; in
+    Sec. 4-7-2. That matters, because nuisances carry a three-strikes consequence that the plain offence does not
+    &mdash; see the barking answer below.</p>
+    <p class="cites"><strong>Where it says so:</strong>
+      <a href="ordinances.html#s4-3">Sec. 4-3</a> &middot;
+      <a href="ordinances.html#s4-7-2">Sec. 4-7-2(A)(5)(c)</a></p>
+  </div>
+</details>
+
+<details class="faq">
+  <summary>Barking, howling and a dog that bothers people</summary>
+  <div class="answer">
+    <p>A dog is a public nuisance if it molests people or passing vehicles including bicycles, or if it barks,
+    whines or howls &ldquo;in an excessive, continuous or untimely fashion.&rdquo; None of those three words is
+    defined, and there is no decibel standard, no time-of-day cut-off and no complaint procedure in the Code.
+    Worland&rsquo;s separate noise chapter (Chapter 14A) does not mention animals.</p>
+    <p>The consequence is unusually severe and worth knowing. An animal that is the subject of <strong>three
+    violations</strong> is declared a habitual public nuisance on the third, and on the court&rsquo;s determination
+    the owner must have it destroyed or relocated outside the City within ten days. If it is not moved, it is
+    disposed of under the direction of the Chief of Police. The Code does not say whether a &ldquo;violation&rdquo;
+    means a complaint, a citation or a conviction.</p>
+    <p class="cites"><strong>Where it says so:</strong>
+      <a href="ordinances.html#s4-7-2">Sec. 4-7-2(A)(1)</a> (what counts) &middot;
+      <a href="ordinances.html#s4-7-3">Sec. 4-7-3</a> (three strikes) &middot;
+      <a href="ordinances.html#s4-7-5">Sec. 4-7-5</a> (penalty)</p>
+  </div>
+</details>
+
+<details class="faq">
+  <summary>If a dog bites someone</summary>
+  <div class="answer">
+    <p>Any dog that has bitten a person must be confined under the observation of a licensed veterinarian for ten
+    days after the attack, at the owner&rsquo;s expense, to check for disease communicable to humans. Since a 2025
+    amendment, home quarantine may be allowed instead, at the discretion of the Animal Control Officer or a
+    Peace Officer.</p>
+    <p>Separately, a dog that is notoriously vicious or cross, or that shows a disposition to bite, may not be kept
+    at all unless it is properly secured and muzzled. On conviction, if the dog is still alive, the municipal judge
+    may order a police officer to have it killed, and officers may enter premises for that purpose. This provision
+    dates from 1950. There is no definition of &ldquo;vicious,&rdquo; no dangerous-dog hearing, and no appeal
+    written into it.</p>
+    <p class="cites"><strong>Where it says so:</strong>
+      <a href="ordinances.html#s4-25">Sec. 4-25</a> (ten-day confinement) &middot;
+      <a href="ordinances.html#s4-15">Sec. 4-15</a> (vicious or cross dogs)</p>
+  </div>
+</details>
+
+<details class="faq">
+  <summary>If your dog is picked up &mdash; fees, holding times, and the deadline</summary>
+  <div class="answer">
+    <p>Two different tracks exist, and which one applies depends on why the dog was taken.</p>
+    <p><strong>Picked up running at large.</strong> You pay the City Treasurer a $50 fee for taking up and receiving
+    the animal, plus the veterinarian&rsquo;s daily impoundment charge, before the dog is released. A dog not
+    redeemed <em>within three days after the date of impoundment</em> is destroyed or otherwise disposed of.</p>
+    <p><strong>Picked up without a licence tag or vaccination tag.</strong> The dog is held <em>at least three days,
+    exclusive of the day of capture</em>. If it is not claimed and the licences bought, it is exterminated and
+    buried beyond the City limits.</p>
+    <p>The two rules count the three days differently and describe the ending differently, and neither refers to
+    the other. In practice, treat three days from the day the dog was taken as the outside limit and act
+    immediately.</p>
+    <p class="cites"><strong>Where it says so:</strong>
+      <a href="ordinances.html#s4-1-3">Sec. 4-1-3</a> &middot;
+      <a href="ordinances.html#s4-1-4">Sec. 4-1-4</a> &middot;
+      <a href="ordinances.html#s4-24">Sec. 4-24</a></p>
+  </div>
+</details>
+
+<details class="faq">
+  <summary>Rabies vaccination</summary>
+  <div class="answer">
+    <p>It is unlawful to own or keep a dog in the City without having it inoculated or vaccinated for rabies by a
+    licensed veterinarian, and you must hold the vet&rsquo;s certificate as proof. Dogs must stay current, as
+    determined by a veterinarian &mdash; the Code sets no fixed interval of its own. Proof of current vaccination
+    is a precondition of getting a licence.</p>
+    <p class="cites"><strong>Where it says so:</strong>
+      <a href="ordinances.html#s4-17">Sec. 4-17</a> &middot;
+      <a href="ordinances.html#s4-26">Sec. 4-26(C)</a></p>
+  </div>
+</details>
+
+<details class="faq">
+  <summary>How many dogs may I keep? Can I breed them?</summary>
+  <div class="answer">
+    <p>There is no cap on the number of dogs. Above ten dogs and cats combined you simply pay an extra $50 a year.</p>
+    <p>Breeding is a different matter. Keeping a &ldquo;kennel&rdquo; anywhere in the City is declared a nuisance and
+    is punishable. The Code&rsquo;s definition is narrow and easy to trip over: a kennel is any premises where
+    <em>more than one female dog</em> is kept for breeding purposes, or where more than one litter of pups is kept
+    for the purpose of sale. Two intact females kept for breeding is, on the face of it, a kennel.</p>
+    <p class="cites"><strong>Where it says so:</strong>
+      <a href="ordinances.html#s4-4">Sec. 4-4</a> (ten-animal surcharge) &middot;
+      <a href="ordinances.html#s4-7-1">Sec. 4-7-1</a> (kennels)</p>
+  </div>
+</details>
+
+<details class="faq">
+  <summary>Dogs at the Worland Municipal Airport</summary>
+  <div class="answer">
+    <p>Stricter than anywhere else in the City, and the only place with a dog rule of its own. No dog may enter the
+    aircraft operation areas at all. No pet may enter the public use areas of the passenger terminal, except an
+    animal helping a disabled person or one secured in a carrier for transport aboard an aircraft. Elsewhere on
+    airport land dogs are allowed if leashed or otherwise under control, and owners must repair or remove any
+    damage or debris their animal causes. Working animals under the control of a peace officer or authorised
+    post office, airport or air carrier employee are exempt.</p>
+    <p class="cites"><strong>Where it says so:</strong>
+      <a href="ordinances.html#s2a-22">Sec. 2A-22(E)</a></p>
+  </div>
+</details>
+
+<details class="faq">
+  <summary>What are the penalties?</summary>
+  <div class="answer">
+    <p>Most dog offences carry no penalty of their own; they fall back on the Code&rsquo;s general penalty. That is
+    a misdemeanor, a fine of not more than <strong>$750</strong>, plus costs not exceeding $10. <strong>Each day a
+    violation continues is a separate offence</strong>, which is how a small matter becomes an expensive one.</p>
+    <p>Two dog-specific consequences sit outside the fine: destruction or relocation of an animal declared a
+    habitual public nuisance after three violations (Sec. 4-7-3), and a judge&rsquo;s order to destroy a vicious
+    dog on conviction (Sec. 4-15).</p>
+    <p class="cites"><strong>Where it says so:</strong>
+      <a href="ordinances.html#s1-7">Sec. 1-7</a> (general penalty) &middot;
+      <a href="ordinances.html#s4-7-5">Sec. 4-7-5</a> (penalties for Article I)</p>
+  </div>
+</details>
+
+<details class="faq">
+  <summary>Who enforces these rules?</summary>
+  <div class="answer">
+    <p>Honest answer: the Code is not consistent about it. Sec. 4-1 assigns impoundment and agreements with animal
+    hospitals to the Chief of Police. Sec. 4-1-3 makes it the duty of &ldquo;every police officer&rdquo; to
+    apprehend dogs at large. Sec. 4-7-4 lets the Chief of Police or designees use chemical immobilisation. The
+    2025 amendment to Sec. 4-25 gives discretion to &ldquo;the Animal Control Officer or Peace Officer&rdquo; &mdash;
+    but no Animal Control Officer is created, appointed or defined anywhere in the Code. Sec. 2-1 lists the
+    officers the Mayor appoints, and animal control appears there only as one of the areas that
+    <em>Municipal Ordinance Officers</em> may cite for.</p>
+    <p>For anything practical &mdash; buying a licence, reporting a stray, reclaiming a dog &mdash; contact the City
+    of Worland directly. The Code does not publish a counter, a phone number or a form.</p>
+    <p class="cites"><strong>Where it says so:</strong>
+      <a href="ordinances.html#s4-1">Sec. 4-1(K)</a> &middot;
+      <a href="ordinances.html#s4-1-3">Sec. 4-1-3</a> &middot;
+      <a href="ordinances.html#s4-7-4">Sec. 4-7-4</a> &middot;
+      <a href="ordinances.html#s4-25">Sec. 4-25</a></p>
+  </div>
+</details>
+
+<h2>Index of ordinances that apply to dogs</h2>
+<p class="lede">Every section below is reproduced in full on the <a href="ordinances.html">Ordinance Text</a> page.
+Sections are grouped by what they do, not by where the Code files them &mdash; the two are not the same, which is
+the subject of the <a href="audit.html">audit</a>.</p>
+
+<div class="group">
+  <h3>Where a dog may be, and on what</h3>
+  <ul class="sections">
+    <li><a class="sec" href="ordinances.html#s4-1-1"><span class="num">Sec. 4-1-1</span><span class="ttl">Running at large; dogs and cats; definitions<small>Defines &ldquo;at large,&rdquo; &ldquo;dog&rdquo; and &ldquo;owner&rdquo; for the dog rules. Article I.</small></span></a></li>
+    <li><a class="sec" href="ordinances.html#s4-1-2"><span class="num">Sec. 4-1-2</span><span class="ttl">Running at large; dogs and cats; prohibited<small>The confinement and leash rule. This is Worland&rsquo;s leash law. Article I.</small></span></a></li>
+    <li><a class="sec" href="ordinances.html#s4-1"><span class="num">Sec. 4-1</span><span class="ttl">Running at large; generally<small>The parallel rule for all other animals and fowl &mdash; expressly excludes dogs and cats. Article I.</small></span></a></li>
+    <li><a class="sec" href="ordinances.html#s2a-22"><span class="num">Sec. 2A-22(E)</span><span class="ttl">Control of pets at the Worland Municipal Airport<small>The only place-specific dog rule in the Code. Chapter 2A.</small></span></a></li>
+  </ul>
+</div>
+
+<div class="group">
+  <h3>Licensing, tags and vaccination</h3>
+  <ul class="sections">
+    <li><a class="sec" href="ordinances.html#s4-26"><span class="num">Sec. 4-26</span><span class="ttl">License requirements<small>Age, dates, fees, tags, proof of vaccination and spay/neuter. Article IV.</small></span></a></li>
+    <li><a class="sec" href="ordinances.html#s4-17"><span class="num">Sec. 4-17</span><span class="ttl">Annual vaccination of dogs<small>Rabies inoculation and the certificate you must hold. Article III.</small></span></a></li>
+    <li><a class="sec" href="ordinances.html#s4-4"><span class="num">Sec. 4-4</span><span class="ttl">Multiple pet licenses<small>The $50 annual surcharge above ten dogs and cats combined. Article I.</small></span></a></li>
+    <li class="repealed"><a class="sec" href="ordinances.html#s4-18"><span class="num">Sec. 4-18</span><span class="ttl">License; required<small>Repealed in 2013 &mdash; still listed under &ldquo;DOGS&rdquo; in the official table of contents. The live rule is Sec. 4-26.</small></span></a></li>
+  </ul>
+</div>
+
+<div class="group">
+  <h3>Nuisance, noise and waste</h3>
+  <ul class="sections">
+    <li><a class="sec" href="ordinances.html#s4-7-2"><span class="num">Sec. 4-7-2</span><span class="ttl">Public nuisance<small>Barking, howling, molesting people and bicycles; waste accumulation. Article I.</small></span></a></li>
+    <li><a class="sec" href="ordinances.html#s4-7-3"><span class="num">Sec. 4-7-3</span><span class="ttl">Owner&rsquo;s responsibility<small>Defines &ldquo;owner&rdquo; again, and sets the three-violation destroy-or-relocate rule. Article I.</small></span></a></li>
+    <li><a class="sec" href="ordinances.html#s4-3"><span class="num">Sec. 4-3</span><span class="ttl">Animal waste<small>The duty to pick up, including in parks and recreation areas. Article I.</small></span></a></li>
+  </ul>
+</div>
+
+<div class="group">
+  <h3>Bites, vicious dogs and cruelty</h3>
+  <ul class="sections">
+    <li><a class="sec" href="ordinances.html#s4-25"><span class="num">Sec. 4-25</span><span class="ttl">Confinement of dogs that have bitten persons<small>Ten-day veterinary observation; home quarantine since 2025. Article III.</small></span></a></li>
+    <li><a class="sec" href="ordinances.html#s4-15"><span class="num">Sec. 4-15</span><span class="ttl">Keeping cross or vicious dogs<small>Muzzling requirement and the court&rsquo;s power to order destruction. Article III.</small></span></a></li>
+    <li><a class="sec" href="ordinances.html#s4-2"><span class="num">Sec. 4-2</span><span class="ttl">Cruelty to animals<small>Abuse, neglect, abandonment; food, water and shelter. Article I.</small></span></a></li>
+  </ul>
+</div>
+
+<div class="group">
+  <h3>Breeding and kennels</h3>
+  <ul class="sections">
+    <li><a class="sec" href="ordinances.html#s4-7-1"><span class="num">Sec. 4-7-1</span><span class="ttl">Dog and cat kennels prohibited; kennel defined<small>More than one breeding female, or more than one litter for sale, is a nuisance. Article I.</small></span></a></li>
+  </ul>
+</div>
+
+<div class="group">
+  <h3>Impoundment, redemption and disposal</h3>
+  <ul class="sections">
+    <li><a class="sec" href="ordinances.html#s4-1-3"><span class="num">Sec. 4-1-3</span><span class="ttl">Impoundment; redemption fee<small>$50 to the City Treasurer plus the veterinarian&rsquo;s daily charge. Article I.</small></span></a></li>
+    <li><a class="sec" href="ordinances.html#s4-1-4"><span class="num">Sec. 4-1-4</span><span class="ttl">Destruction of impounded dogs and cats<small>Three days after the date of impoundment. Article I.</small></span></a></li>
+    <li><a class="sec" href="ordinances.html#s4-24"><span class="num">Sec. 4-24</span><span class="ttl">Impounding dogs not properly licensed or vaccinated<small>A second, differently worded three-day rule. Article III.</small></span></a></li>
+    <li><a class="sec" href="ordinances.html#s4-7-4"><span class="num">Sec. 4-7-4</span><span class="ttl">Chemical immobilization<small>Authority to tranquilise animals at large. Article I.</small></span></a></li>
+  </ul>
+</div>
+
+<div class="group">
+  <h3>Interfering with enforcement, and penalties</h3>
+  <ul class="sections">
+    <li><a class="sec" href="ordinances.html#s4-6"><span class="num">Sec. 4-6</span><span class="ttl">Hindering, obstructing Impounding Officer<small>Article I.</small></span></a></li>
+    <li><a class="sec" href="ordinances.html#s4-7"><span class="num">Sec. 4-7</span><span class="ttl">Releasing impounded animals<small>Article I.</small></span></a></li>
+    <li><a class="sec" href="ordinances.html#s4-7-5"><span class="num">Sec. 4-7-5</span><span class="ttl">Penalties<small>Applies to Article I only; refers to Sec. 1-7.</small></span></a></li>
+    <li><a class="sec" href="ordinances.html#s1-7"><span class="num">Sec. 1-7</span><span class="ttl">General penalty; continuing violations<small>$750 maximum, plus costs; each day a separate offence. Chapter 1.</small></span></a></li>
+  </ul>
+</div>
+
+<div class="group">
+  <h3>Empty slots in the dogs article</h3>
+  <p class="lede">Listed for completeness, because they appear in the City&rsquo;s own table of contents and a reader
+  looking for a rule can land on them and find nothing.</p>
+  <ul class="sections">
+    <li class="repealed"><a class="sec" href="ordinances.html#s4-reserved"><span class="num">Secs. 4-13, 4-14</span><span class="ttl">Reserved<small>Repealed 1995.</small></span></a></li>
+    <li class="repealed"><a class="sec" href="ordinances.html#s4-reserved"><span class="num">Sec. 4-16</span><span class="ttl">Reserved<small>Repealed 1995.</small></span></a></li>
+    <li class="repealed"><a class="sec" href="ordinances.html#s4-reserved"><span class="num">Secs. 4-19&mdash;4-23</span><span class="ttl">Reserved<small>Repealed 2003.</small></span></a></li>
+    <li class="repealed"><a class="sec" href="ordinances.html#s4-reserved"><span class="num">Secs. 4-27&mdash;4-29</span><span class="ttl">Reserved<small>Between licensing and the chickens article.</small></span></a></li>
+  </ul>
+</div>
+
+  </div>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <p><strong>This is not the official code.</strong> It is an unofficial, plain-language republication of
+    the dog-related provisions of the Code of the City of Worland, Wyoming, prepared to make them easier to
+    find and read. The controlling text is the one published by the City at
+    <a href="https://library.municode.com/wy/worland/codes/code_of_ordinances">library.municode.com/wy/worland</a>.
+    Where this edition and the official code differ, the official code governs.</p>
+    <p>Ordinance text reproduced here is the enacted law of the City of Worland and is in the public domain as a
+    government edict. Layout, plain-language summaries, groupings and commentary on these pages are original to
+    this edition. Source consulted: the City of Worland Code of Ordinances as displayed on Municode, version
+    dated 27 October 2025. Pages last built 25 August 2026.</p>
+    <p>Every page here prints cleanly: use <em>Save this page as PDF</em> and choose &ldquo;Save as PDF&rdquo; as the
+    destination in your browser&rsquo;s print dialog.</p>
+  </div>
+</footer>
+<script>
+(function () {
+  var D = function () { return document.querySelectorAll('details'); };
+  function openAll() { D().forEach(function (d) { d.dataset.wasOpen = d.open ? '1' : '0'; d.open = true; }); }
+  function restore() { D().forEach(function (d) { d.open = d.dataset.wasOpen === '1'; delete d.dataset.wasOpen; }); }
+  window.addEventListener('beforeprint', openAll);
+  window.addEventListener('afterprint', restore);
+  var mq = window.matchMedia && window.matchMedia('print');
+  if (mq && mq.addEventListener) { mq.addEventListener('change', function (e) { e.matches ? openAll() : restore(); }); }
+  document.querySelectorAll('button.pdf').forEach(function (b) {
+    b.addEventListener('click', function () { openAll(); });
+  });
+}());
+</script>
 </body>
 </html>

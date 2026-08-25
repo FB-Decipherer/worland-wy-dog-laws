@@ -6,6 +6,14 @@
 <title>Worland Dog Laws — Audit Report</title>
 <meta name="description" content="An audit of how the City of Worland, Wyoming presents its dog ordinances — structural inconsistencies and barriers for ordinary users.">
 <meta name="robots" content="index,follow">
+<script>
+(function () {
+  try {
+    var t = localStorage.getItem('wdl-theme');
+    if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+  } catch (e) {}
+}());
+</script>
 <style>
 :root{
   --bg:#fbfaf7; --panel:#ffffff; --ink:#1c1b19; --ink-soft:#4a4742;
@@ -14,11 +22,16 @@
   --max:74rem;
 }
 @media (prefers-color-scheme:dark){
-  :root{
+  :root:not([data-theme="light"]){
     --bg:#16150f; --panel:#1e1d16; --ink:#eeeae0; --ink-soft:#b6b0a2;
     --rule:#33312a; --rule-strong:#4a473d; --accent:#d69a5f; --accent-soft:#2a251c;
     --link:#e0a86a; --flag:#e08b84; --flag-soft:#33201f; --ok:#8fc9a4; --ok-soft:#1d2a22;
   }
+}
+:root[data-theme="dark"]{
+    --bg:#16150f; --panel:#1e1d16; --ink:#eeeae0; --ink-soft:#b6b0a2;
+    --rule:#33312a; --rule-strong:#4a473d; --accent:#d69a5f; --accent-soft:#2a251c;
+    --link:#e0a86a; --flag:#e08b84; --flag-soft:#33201f; --ok:#8fc9a4; --ok-soft:#1d2a22;
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -47,7 +60,8 @@ nav.pages a{
 }
 nav.pages a:hover{background:var(--accent-soft); color:var(--ink)}
 nav.pages a[aria-current="page"]{background:var(--accent); color:#fff}
-@media (prefers-color-scheme:dark){nav.pages a[aria-current="page"]{color:#16150f}}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) nav.pages a[aria-current="page"]{color:#16150f}}
+:root[data-theme="dark"] nav.pages a[aria-current="page"]{color:#16150f}
 .spacer{flex:1 1 auto}
 button.pdf{
   font:600 .9rem/1 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
@@ -55,6 +69,8 @@ button.pdf{
   padding:.55rem .85rem; border-radius:.4rem
 }
 button.pdf:hover{background:var(--accent-soft)}
+button.theme{padding:.55rem .75rem; min-width:5.4rem}
+button.theme[hidden]{display:none}
 
 main{padding:2rem 0 4rem}
 h2{
@@ -186,7 +202,12 @@ footer.site p{margin:0 0 .5rem; max-width:70ch}
 }
 
 @media print{
-  nav.pages,button.pdf,.backlink,.noprint{display:none !important}
+  :root,:root[data-theme="dark"],:root[data-theme="light"]{
+    --bg:#fff; --panel:#fff; --ink:#000; --ink-soft:#333;
+    --rule:#ccc; --rule-strong:#999; --accent:#333; --accent-soft:#f0f0f0;
+    --link:#000; --flag:#333; --flag-soft:#f0f0f0; --ok:#333; --ok-soft:#f4f4f4;
+  }
+  nav.pages,button.pdf,button.theme,.backlink,.noprint{display:none !important}
   body{background:#fff; color:#000; font-size:11pt}
   .wrap{max-width:none; padding:0}
   .faq{border:none; page-break-inside:avoid; margin-bottom:.5rem}
@@ -223,6 +244,7 @@ footer.site p{margin:0 0 .5rem; max-width:70ch}
     <a href="ordinances.html">Ordinance Text</a>
     <a href="audit.html" aria-current="page">Audit Report</a>
     <span class="spacer"></span>
+    <button class="pdf theme" type="button" id="themeToggle" hidden>&#9790; Dark</button>
     <button class="pdf" type="button" onclick="window.print()">Save this page as PDF</button>
   </div>
 </nav>
@@ -660,6 +682,32 @@ means it was produced, and how long it took &mdash; and can judge the result aga
   document.querySelectorAll('button.pdf').forEach(function (b) {
     b.addEventListener('click', function () { openAll(); });
   });
+}());
+(function () {
+  var root = document.documentElement, KEY = 'wdl-theme';
+  var btn = document.getElementById('themeToggle');
+  if (!btn) return;
+  function stored() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
+  function systemDark() { return !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches); }
+  function isDark() { var t = root.getAttribute('data-theme'); return t ? t === 'dark' : systemDark(); }
+  function paint() {
+    var d = isDark();
+    btn.innerHTML = d ? '☀ Light' : '☾ Dark';
+    btn.setAttribute('aria-label', d ? 'Switch to light appearance' : 'Switch to dark appearance');
+    btn.setAttribute('title', d ? 'Switch to light appearance' : 'Switch to dark appearance');
+  }
+  btn.hidden = false;
+  paint();
+  btn.addEventListener('click', function () {
+    var next = isDark() ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem(KEY, next); } catch (e) {}
+    paint();
+  });
+  if (window.matchMedia) {
+    var mq = window.matchMedia('(prefers-color-scheme: dark)');
+    if (mq.addEventListener) mq.addEventListener('change', function () { if (!stored()) paint(); });
+  }
 }());
 </script>
 </body>

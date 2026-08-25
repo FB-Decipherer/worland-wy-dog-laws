@@ -1,0 +1,597 @@
+<title>Worland Dog Law</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+  :root{
+    --paper:#e9edf1; --surface:#fbfcfd; --sunk:#e2e8ee;
+    --ink:#16202b; --ink-2:#4d5d6b; --ink-3:#71818f;
+    --rule:#c6d1da; --hair:#dbe3e9;
+    --stamp:#9e2f26; --stamp-soft:#f0e0dd;
+    --serif:"Zilla Slab",Georgia,"Times New Roman",serif;
+    --sans:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#111820; --surface:#18212b; --sunk:#141d26;
+      --ink:#e7edf3; --ink-2:#a3b3c1; --ink-3:#7e8f9d;
+      --rule:#2f3d4a; --hair:#26323d;
+      --stamp:#e8877a; --stamp-soft:#33211f;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#111820; --surface:#18212b; --sunk:#141d26;
+    --ink:#e7edf3; --ink-2:#a3b3c1; --ink-3:#7e8f9d;
+    --rule:#2f3d4a; --hair:#26323d;
+    --stamp:#e8877a; --stamp-soft:#33211f;
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{margin:0;background:var(--paper);color:var(--ink);
+       font-family:var(--sans);font-size:16.5px;line-height:1.6;
+       -webkit-font-smoothing:antialiased}
+  .sheet{max-width:52rem;margin:0 auto;padding:44px 26px 80px;
+         display:flex;flex-direction:column;gap:44px}
+
+  .mast{display:flex;flex-direction:column;gap:13px;
+        border-top:3px solid var(--ink);padding-top:16px}
+  .meta{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;
+        color:var(--ink-2);display:flex;flex-wrap:wrap;gap:7px 15px;margin:0}
+  .meta .sep{color:var(--ink-3)}
+  h1{font-family:var(--serif);font-weight:700;font-size:clamp(34px,7vw,52px);
+     line-height:1.03;letter-spacing:-.015em;margin:0;text-wrap:balance}
+  .caption{font-size:22px;line-height:1.5;color:var(--ink-2);margin:0;max-width:34em}
+
+  h2{font-family:var(--serif);font-weight:600;font-size:15px;letter-spacing:.13em;
+     text-transform:uppercase;color:var(--ink-2);margin:0;
+     padding-bottom:9px;border-bottom:1px solid var(--rule)}
+  section{display:flex;flex-direction:column;gap:20px;scroll-margin-top:20px}
+  p{margin:0}
+  em{font-style:italic}
+
+  .scope{background:var(--sunk);border:1px solid var(--rule);padding:20px 24px;
+         display:flex;flex-direction:column;gap:11px}
+  .scope p{font-size:16px;line-height:1.58;color:var(--ink-2)}
+  .scope b{color:var(--ink);font-weight:600}
+
+  .why{background:var(--surface);border:1px solid var(--rule);border-left:4px solid var(--stamp);
+       padding:22px 26px;display:flex;flex-direction:column;gap:14px}
+  .why p{font-size:16px;line-height:1.58;color:var(--ink-2)}
+  .why b{color:var(--ink);font-weight:600}
+  .why .verdict{font-family:var(--serif);font-size:19.5px;line-height:1.42;color:var(--ink);
+                font-weight:600;letter-spacing:-.005em}
+  .counts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;
+          background:var(--rule);border:1px solid var(--rule);margin:2px 0}
+  .cnt{background:var(--sunk);padding:14px 16px;display:flex;flex-direction:column;gap:4px}
+  .cnt .n{font-family:var(--mono);font-size:25px;line-height:1;font-weight:500;color:var(--stamp);
+          font-variant-numeric:tabular-nums}
+  .cnt .l{font-size:13.5px;line-height:1.4;color:var(--ink-2)}
+
+  .index{columns:2;column-gap:38px;column-rule:1px solid var(--hair)}
+  @media(max-width:620px){.index{columns:1}}
+  .ix{break-inside:avoid;display:flex;justify-content:space-between;gap:10px;
+      align-items:baseline;padding:5px 0;border-bottom:1px dotted var(--hair)}
+  .ix span:first-child{font-size:15.5px;color:var(--ink)}
+  .ix a{font-family:var(--mono);font-size:12.5px;color:var(--stamp);
+        text-decoration:none;white-space:nowrap;font-weight:500}
+  .ix a:hover{text-decoration:underline}
+  .ix.none a{color:var(--ink-3)}
+  .ixhead{break-inside:avoid;font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;
+          text-transform:uppercase;color:var(--ink-3);
+          margin:16px 0 5px;padding-bottom:4px;border-bottom:1px solid var(--rule)}
+  .index > .ixhead:first-child{margin-top:0}
+
+  .group{display:flex;flex-direction:column;gap:0;
+         border:1px solid var(--rule);background:var(--surface)}
+  .glabel{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;
+          color:var(--ink-3);padding:13px 22px;border-bottom:1px solid var(--rule);
+          background:var(--sunk)}
+  .stat{padding:18px 22px;border-bottom:1px solid var(--hair);
+        display:grid;grid-template-columns:5.4rem 1fr;gap:18px}
+  .stat:last-child{border-bottom:0}
+  .sec{font-family:var(--mono);font-size:13px;font-weight:500;color:var(--stamp);
+       padding-top:2px;font-variant-numeric:tabular-nums;line-height:1.5}
+  .stat h3{font-family:var(--sans);font-size:16px;font-weight:600;margin:0 0 4px}
+  .stat p{font-size:15.5px;line-height:1.56;color:var(--ink-2)}
+  .stat p + p{margin-top:7px}
+  .stat .orig{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);
+              margin-top:8px;letter-spacing:.02em}
+  .num{font-variant-numeric:tabular-nums;font-weight:600;color:var(--ink)}
+  .dead{opacity:.62}
+  .dead .sec{color:var(--ink-3)}
+  .warn{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.07em;
+        text-transform:uppercase;color:var(--stamp);border:1px solid var(--stamp);
+        padding:1px 7px;margin-bottom:6px}
+
+  .conf{display:flex;flex-direction:column;gap:16px}
+  .row{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:baseline}
+  .row .mark{font-family:var(--serif);font-size:21px;font-weight:700;color:var(--stamp);line-height:1}
+  .row p{font-size:16px;line-height:1.57;color:var(--ink-2)}
+  .row b{color:var(--ink);font-weight:600}
+
+  footer{border-top:1px solid var(--rule);padding-top:18px;
+         display:flex;flex-direction:column;gap:10px}
+  footer p{font-size:14.5px;line-height:1.6;color:var(--ink-3)}
+  a:focus-visible{outline:2px solid var(--stamp);outline-offset:3px}
+
+  @media (max-width:560px){
+    body{font-size:16px}
+    .sheet{padding:30px 18px 56px;gap:34px}
+    .stat{grid-template-columns:1fr;gap:6px}
+    .sec{padding-top:0}
+    .why{padding:18px 16px}
+  }
+  @media print{
+    body{background:#fff;font-size:9.5pt;line-height:1.4}
+    .sheet{max-width:100%;padding:0;gap:15px}
+    h1{font-size:26pt}
+    .caption{font-size:11pt}
+    section{gap:11px}
+    .stat{padding:10px 14px;grid-template-columns:4.6rem 1fr;gap:12px}
+    .stat p{font-size:9.5pt;line-height:1.4}
+    .stat p + p{margin-top:4px}
+    .stat .orig{margin-top:4px;font-size:8pt}
+    .glabel{padding:7px 14px}
+    .scope,.why{padding:12px 14px;gap:8px}
+    .why .verdict{font-size:13pt}
+    .index{columns:2;column-gap:26px}
+    .ix{padding:2px 0}
+    .group,.stat,.scope,.why,.counts,.row,.ix{break-inside:avoid;page-break-inside:avoid}
+    h2{break-after:avoid}
+  }
+</style>
+
+<div class="sheet">
+
+  <header class="mast">
+    <p class="meta">
+      <span>City of Worland, Wyoming</span><span class="sep">/</span>
+      <span>Consolidated dog provisions</span><span class="sep">/</span>
+      <span>Current to Ord. 879 &middot; 17 May 2025</span>
+    </p>
+    <h1>Worland Dog Law</h1>
+    <p class="caption">Every provision in the municipal code that governs owning a dog,
+      gathered out of four scattered articles and set in one order, with an index.</p>
+  </header>
+
+  <section>
+    <h2>Scope</h2>
+    <div class="scope">
+      <p>All twenty-five chapters of the code were checked. <b>The word &ldquo;dog&rdquo; appears in no
+        chapter outside Chapter 4.</b> Every rule below is therefore drawn from Chapter 4 &mdash;
+        Animals and Fowl &mdash; with two provisions pulled in by cross-reference.</p>
+      <p>Worth knowing: <b>Chapter 14A is the Noise chapter, and it says nothing about
+        dogs.</b> Barking is governed solely by the nuisance section at 4-7-2, which carries a
+        three-strikes consequence the noise chapter does not. <b>There is also no Parks and
+        Recreation chapter</b> &mdash; see &ldquo;Parks and public places&rdquo; below.</p>
+      <p>Section numbers here are unchanged, so anything can be checked against the code as
+        published. The order is by subject rather than by the code&rsquo;s own arrangement, for the
+        reasons set out next.</p>
+    </div>
+  </section>
+
+  <section id="why">
+    <h2>How the code is organised</h2>
+    <div class="why">
+      <p class="verdict">You have to know the whole chapter before you can safely look up any
+        part of it. That is the definition of a reference that does not work as a reference &mdash;
+        and it is why this document exists.</p>
+
+      <div class="counts">
+        <div class="cnt"><span class="n">18</span><span class="l">provisions govern owning a dog</span></div>
+        <div class="cnt"><span class="n">4 of 5</span><span class="l">articles they are scattered across</span></div>
+        <div class="cnt"><span class="n">9 of 13</span><span class="l">slots in the article headed <em>Dogs</em> are empty</span></div>
+        <div class="cnt"><span class="n">~24</span><span class="l">amending ordinances layered in since 1915</span></div>
+      </div>
+
+      <p><b>It misdirects rather than merely scatters.</b> This is the charge that matters.
+        Ordinary bad organisation wastes a reader&rsquo;s time. Sec. 4-1 is headed &ldquo;Running at large;
+        generally&rdquo; and defines <em>Animal</em> to mean everything <b>except dogs and cats</b>. A
+        citizen who finds the section that appears to govern his situation, and reads it
+        carefully, comes away with the wrong answer. Fragmentation that hides the law is a
+        nuisance; fragmentation that impersonates it is a defect.</p>
+
+      <p><b>A term of art carries two definitions in one chapter.</b> &ldquo;At large&rdquo; means <em>not
+        under immediate control</em> in 4-1 and <em>not under control by leash, cord, chain or
+        otherwise</em> in 4-1-1 &mdash; one scoped to a section, the other to the whole article. That
+        is the exact word on which impoundment, a $50 fee and a three-day death clock all turn.</p>
+
+      <p><b>The heading misstates where the law is.</b> Article III is titled DOGS; nine of its
+        thirteen section slots are empty, and the four survivors are about a fifth of the rules
+        a dog owner is bound by. A table of contents is a navigational promise, and this one
+        does not keep it.</p>
+
+      <p><b>The residue was never cleared.</b> When licensing moved to a new Article IV in 2013,
+        Sec. 4-18 was left in place, repealed and hollow. A stray running-at-large prohibition
+        still sits inside the <em>cruelty</em> section, duplicating 4-1-2. Each amendment was
+        reasonable on its own; the accumulation is not. The decimal inserts &mdash; 4-1-1, 4-7-2,
+        4-7-3 &mdash; are the tell: sections wedged between existing numbers because renumbering
+        means recodification, and recodification costs money.</p>
+
+      <p><b>And the amendments are unsynchronised.</b> In 2025 the city carefully improved the
+        dog-bite section and left the identically-derived cat provision untouched. Two animals,
+        one parent ordinance of 1951, and now materially different law &mdash; not by decision but
+        by inattention.</p>
+
+      <p>In fairness: this is a town of about five thousand, recodification is expensive, and
+        none of this is unusual for a small municipality. <b>The failure is ordinary. It is the
+        stakes that are not</b> &mdash; nearly every provision here ends in a lethal remedy: three
+        days, ten days, destroyed, exterminated. A code carrying that much killing owes the
+        citizen a clean path to knowing what is required of him, and the people most likely to
+        lose a dog to the gap are the ones least able to hire someone who can navigate it.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Index</h2>
+    <div class="index">
+      <div class="ixhead">A &ndash; C</div>
+      <div class="ix"><span>Abandonment</span><a href="#care">4-2</a></div>
+      <div class="ix"><span>Argument &mdash; why this exists</span><a href="#why">How it is organised</a></div>
+      <div class="ix"><span>At large &mdash; definition</span><a href="#defs">4-1-1</a></div>
+      <div class="ix none"><span>At large &mdash; general section</span><a href="#defs">4-1 (excludes dogs)</a></div>
+      <div class="ix"><span>Barking, whining, howling</span><a href="#nuisance">4-7-2</a></div>
+      <div class="ix"><span>Bites</span><a href="#danger">4-25</a></div>
+      <div class="ix"><span>Breeding</span><a href="#keeping">4-7-1</a></div>
+      <div class="ix"><span>Chemical immobilization</span><a href="#enforce">4-7-4</a></div>
+      <div class="ix"><span>Confinement on premises</span><a href="#control">4-1-2</a></div>
+      <div class="ix"><span>Cruelty</span><a href="#care">4-2</a></div>
+
+      <div class="ixhead">D &ndash; I</div>
+      <div class="ix"><span>Dangerous disposition</span><a href="#danger">4-15</a></div>
+      <div class="ix"><span>Destruction, impounded</span><a href="#impound">4-1-4 &middot; 4-24</a></div>
+      <div class="ix"><span>Excreta</span><a href="#control">4-3 &middot; 4-7-2</a></div>
+      <div class="ix"><span>Female in season</span><a href="#control">4-1-2</a></div>
+      <div class="ix"><span>Fees &mdash; licence</span><a href="#keeping">4-26</a></div>
+      <div class="ix"><span>Fees &mdash; redemption</span><a href="#impound">4-1-3</a></div>
+      <div class="ix"><span>Habitual public nuisance</span><a href="#nuisance">4-7-3</a></div>
+      <div class="ix"><span>Harboring &mdash; definition</span><a href="#defs">4-7-3</a></div>
+      <div class="ix"><span>Impoundment</span><a href="#impound">4-1-3 &middot; 4-24</a></div>
+
+      <div class="ixhead">K &ndash; Q</div>
+      <div class="ix"><span>Kennels</span><a href="#keeping">4-7-1</a></div>
+      <div class="ix"><span>Leash, cord, chain</span><a href="#control">4-1-2</a></div>
+      <div class="ix"><span>Licence</span><a href="#keeping">4-26</a></div>
+      <div class="ix"><span>Litters</span><a href="#keeping">4-4 &middot; 4-7-1</a></div>
+      <div class="ix"><span>Molesting people, vehicles</span><a href="#nuisance">4-7-2</a></div>
+      <div class="ix"><span>Muzzling</span><a href="#danger">4-15</a></div>
+      <div class="ix"><span>Number of dogs</span><a href="#keeping">4-4</a></div>
+      <div class="ix"><span>Obstructing an officer</span><a href="#enforce">4-6</a></div>
+      <div class="ix"><span>Owner &mdash; definition</span><a href="#defs">4-1-1 &middot; 4-7-3</a></div>
+      <div class="ix"><span>Parks &mdash; no exemption</span><a href="#control">4-1-2 &middot; 4-3</a></div>
+      <div class="ix"><span>Penalties</span><a href="#enforce">4-7-5 &middot; 1-7</a></div>
+      <div class="ix"><span>Quarantine after a bite</span><a href="#danger">4-25</a></div>
+
+      <div class="ixhead">R &ndash; Z</div>
+      <div class="ix"><span>Rabies vaccination</span><a href="#keeping">4-17 &middot; 4-26</a></div>
+      <div class="ix"><span>Redemption &mdash; three days</span><a href="#impound">4-1-4 &middot; 4-24</a></div>
+      <div class="ix"><span>Releasing impounded animals</span><a href="#enforce">4-7</a></div>
+      <div class="ix"><span>Relocation outside city</span><a href="#nuisance">4-7-3</a></div>
+      <div class="ix"><span>Shelter, food, water</span><a href="#care">4-2</a></div>
+      <div class="ix"><span>Tags</span><a href="#keeping">4-26</a></div>
+      <div class="ix"><span>Vaccination certificate</span><a href="#keeping">4-17</a></div>
+      <div class="ix"><span>Veterinary observation</span><a href="#danger">4-25</a></div>
+      <div class="ix"><span>Vicious dogs</span><a href="#danger">4-15</a></div>
+      <div class="ix"><span>Repealed &amp; reserved slots</span><a href="#dead">4-13 &ndash; 4-23</a></div>
+    </div>
+  </section>
+
+  <section id="defs">
+    <h2>1 &middot; Definitions</h2>
+    <div class="group">
+      <div class="glabel">What the words mean, and one trap</div>
+      <div class="stat"><span class="sec">4-1-1</span><div>
+        <h3>The definitions that govern dogs</h3>
+        <p><b>At large</b> &mdash; off the owner&rsquo;s premises and not under the control of the owner or
+          his agent &ldquo;either by leash, cord, chain or otherwise.&rdquo; <b>Owner</b> &mdash; any person owning,
+          keeping or harboring a dog. <b>Dog</b> &mdash; both male and female.</p>
+        <p>These are stated to apply to the whole article, not merely this section.</p>
+        <p class="orig">Ord. 327 &sect; 1 &middot; 18 Jan 1962</p>
+      </div></div>
+      <div class="stat"><span class="sec">4-7-3</span><div>
+        <h3>Harboring</h3>
+        <p>A dog is &ldquo;harbored&rdquo; &mdash; making you its owner for code purposes &mdash; if it is fed or
+          sheltered for <span class="num">three or more consecutive days</span>. Feeding a stray
+          for a long weekend makes you responsible for it.</p>
+        <p class="orig">Ord. 556 &sect; 2 &middot; 1984</p>
+      </div></div>
+      <div class="stat dead"><span class="sec">4-1</span><div>
+        <span class="warn">Does not apply to dogs</span>
+        <h3>Running at large, generally</h3>
+        <p>The section a reader is most likely to open first. Its definition of <em>Animal</em>
+          expressly excludes dogs and cats, and its impound procedure, board rates and
+          auction provisions are for livestock and fowl. Nothing in it governs a dog.</p>
+        <p class="orig">Ord. 452 &middot; 1978; Ord. 675 &middot; 1995; Ord. 834 &middot; 2016</p>
+      </div></div>
+    </div>
+  </section>
+
+  <section id="keeping">
+    <h2>2 &middot; Keeping a dog</h2>
+    <div class="group">
+      <div class="glabel">Licence, vaccination, numbers, breeding</div>
+      <div class="stat"><span class="sec">4-26</span><div>
+        <h3>Licence required</h3>
+        <p>Every dog <span class="num">five months</span> or older must be licensed each calendar
+          year, 1 January to 31 December. Harboring an unlicensed dog after
+          <span class="num">31 January</span> is an offence; a new dog acquired mid-year is
+          prorated from the date received.</p>
+        <p>Fee <span class="num">$12.50</span> for a neutered male or spayed female on proof of
+          the procedure, <span class="num">$35.00</span> otherwise. The City Treasurer issues a
+          numbered metal tag, which must be worn at all times.</p>
+        <p>A licence will not issue without proof of current vaccination, and that comes with a
+          second tag of different colour or design, also worn at all times. A first-offence
+          charge is dismissed on proof the dog has since been licensed. Pet stores and humane
+          societies are exempt for business animals.</p>
+        <p class="orig">Ord. 809 &middot; 20 Aug 2013, eff. 1 Sept 2013</p>
+      </div></div>
+      <div class="stat"><span class="sec">4-17</span><div>
+        <h3>Rabies vaccination</h3>
+        <p>Unlawful to own or keep a dog that has not been inoculated against rabies by a
+          licensed veterinarian. The owner must hold the veterinarian&rsquo;s certificate, and the
+          vaccination must be kept current as the veterinarian determines.</p>
+        <p class="orig">Ord. 242 &sect; 2 &middot; 1951; 596 &middot; 1986; 675 &middot; 1995; 750 &middot; 2003 &mdash; state ref. W.S. &sect; 15-102</p>
+      </div></div>
+      <div class="stat"><span class="sec">4-4</span><div>
+        <h3>More than ten animals</h3>
+        <p>Keeping more than <span class="num">ten</span> dogs and cats in any combination costs
+          a flat <span class="num">$50.00</span> a year on top of the ordinary licence fees, due
+          by 31 January. Litters of legally bred, properly licensed pets do not count toward the
+          ten until they reach <span class="num">four months</span>.</p>
+        <p class="orig">Ord. 750 &sect; 2 &middot; 15 May 2003</p>
+      </div></div>
+      <div class="stat"><span class="sec">4-7-1</span><div>
+        <h3>Kennels prohibited</h3>
+        <p>Maintaining a kennel anywhere in the city is declared a nuisance and is punishable.
+          A <b>kennel</b> means any premises where <span class="num">more than one</span> female
+          dog is kept for breeding, or where more than one litter of pups is kept for sale.</p>
+        <p>The threshold is low and catches hobby breeders: two breeding females is a kennel.</p>
+        <p class="orig">Ord. 362 &middot; 1970; Ord. 390 &sect; 3 &middot; 1974</p>
+      </div></div>
+    </div>
+  </section>
+
+  <section id="control">
+    <h2>3 &middot; Control of the dog</h2>
+    <div class="group">
+      <div class="glabel">Where it may be, and what the owner picks up</div>
+      <div class="stat"><span class="sec">4-1-2</span><div>
+        <h3>Confinement and leashing</h3>
+        <p>Every owner must keep the dog securely confined on his premises. It may be on the
+          streets and public places only when controlled by <b>chain, cord or leash</b> &mdash; voice
+          control is not control under this section.</p>
+        <p>A female in season must be confined so that other dogs cannot contact her.</p>
+        <p class="orig">Ord. 327 &sect; 2 &middot; 18 Jan 1962</p>
+      </div></div>
+      <div class="stat"><span class="sec">4-3</span><div>
+        <h3>Waste</h3>
+        <p>Whoever has or purports to have control of the dog must remove any excreta it
+          deposits on public walks, public ways, parks, recreation areas, or private property
+          other than the owner&rsquo;s own. Failure to remove it is itself unlawful.</p>
+        <p class="orig">Ord. 717 &sect; 1 &middot; 18 June 1998 &mdash; repeated at 4-7-2(A)(5)(c)</p>
+      </div></div>
+      <div class="stat"><span class="sec">4-1-2<br>4-3</span><div>
+        <span class="warn">No exemption</span>
+        <h3>Parks and public places</h3>
+        <p>A park is a public place under 4-1-2, so the leash requirement applies there exactly
+          as it does on a street. There is no place-based carve-out anywhere in the code.</p>
+        <p>Parks appear in Chapter 4 once only &mdash; in 4-3, and then to <em>add</em> a duty:
+          excreta must be removed from parks and recreation areas.</p>
+        <p>The code has <b>no Parks and Recreation chapter at all</b>, and the word &ldquo;dog&rdquo;
+          appears in no chapter outside Chapter 4. There is therefore nowhere in the code that
+          an off-leash area could be established. Whatever rules Worland&rsquo;s parks carry &mdash; hours,
+          posted signs, permitted uses &mdash; exist as council resolutions or department practice,
+          not as law, and would not displace 4-1-2.</p>
+        <p class="orig">Worland has no off-leash dog park. Nearest: Thermopolis, Cody, Powell.</p>
+      </div></div>
+    </div>
+  </section>
+
+  <section id="care">
+    <h2>4 &middot; Care of the dog</h2>
+    <div class="group">
+      <div class="glabel">The owner&rsquo;s duty to the animal</div>
+      <div class="stat"><span class="sec">4-2</span><div>
+        <h3>Cruelty, neglect and abandonment</h3>
+        <p>Unlawful to inhumanely, unnecessarily or cruelly overwork, override, beat, injure or
+          otherwise abuse any animal. All animals must be protected from abuse, neglect and
+          abandonment, and at all times provided a safe and healthy environment with proper
+          food, water, and shelter from extreme weather. The shelter must be dry and clear of
+          waste and hazardous material.</p>
+        <p>This section also carries a stray prohibition on allowing &ldquo;any animal to run at
+          large,&rdquo; duplicating 4-1-2 from inside a cruelty provision.</p>
+        <p class="orig">Ord. 25 &sect; 2 &middot; 1915; Ord. 750 &sect; 1 &middot; 2003 &mdash; state ref. W.S. &sect; 11-546</p>
+      </div></div>
+    </div>
+  </section>
+
+  <section id="nuisance">
+    <h2>5 &middot; Nuisance</h2>
+    <div class="group">
+      <div class="glabel">Behaviour, and the three-strikes consequence</div>
+      <div class="stat"><span class="sec">4-7-2</span><div>
+        <h3>What counts as a public nuisance</h3>
+        <p>A dog is a public nuisance if it <b>molests people or passing vehicles, bicycles
+          included</b>, or if it <b>barks, whines or howls in an excessive, continuous or
+          untimely fashion</b>.</p>
+        <p>Also listed: waste the owner allows to accumulate, attract flies or emit odours
+          detectable off the premises; waste presenting a danger to public health as determined
+          by the City board of health; and failure to remove excreta deposited elsewhere.</p>
+        <p class="orig">Ord. 556 &middot; 1984; 591 &middot; 1985; 623 &middot; 1989; 663 &middot; 1993; 834 &middot; 2016; 865 &middot; 2022</p>
+      </div></div>
+      <div class="stat"><span class="sec">4-7-3</span><div>
+        <h3>Three violations &mdash; habitual public nuisance</h3>
+        <p>No owner may fail to prevent his dog becoming a nuisance. On the
+          <span class="num">third</span> violation the dog is declared a habitual public
+          nuisance, and on the court&rsquo;s determination the owner must have it
+          <b>destroyed or relocated</b>.</p>
+        <p>The owner has <span class="num">ten days</span> from notification to move the dog
+          outside city limits. If it has not gone by then it is humanely disposed of under the
+          direction of the Chief of Police.</p>
+        <p class="orig">Ord. 556 &sect; 2 &middot; 1984; 591 &sect; 2 &middot; 1985; 601 &sect; 2 &middot; 1986</p>
+      </div></div>
+    </div>
+  </section>
+
+  <section id="danger">
+    <h2>6 &middot; Dangerous dogs and bites</h2>
+    <div class="group">
+      <div class="glabel">Vicious disposition, and what follows a bite</div>
+      <div class="stat"><span class="sec">4-15</span><div>
+        <h3>Cross or vicious dogs</h3>
+        <p>No one may own, keep or harbor &mdash; or allow on premises under his control &mdash; any
+          notoriously vicious or cross dog, or any dog that may manifest a disposition to bite,
+          without having it <b>properly secured and muzzled</b>. Both, not either.</p>
+        <p>On conviction, if the dog is still living, the municipal judge may in addition to the
+          fine order any police officer to have it killed, and the officer may enter any
+          premises in the city for that purpose.</p>
+        <p class="orig">Ord. 237 &sect; 2 &middot; 1950; Ord. 675 &sect; 9 &middot; 1995</p>
+      </div></div>
+      <div class="stat"><span class="sec">4-25</span><div>
+        <h3>Confinement after a bite</h3>
+        <p>A dog that has bitten any person must be confined under a licensed veterinarian&rsquo;s
+          observation for <span class="num">ten days after the attack</span>, at the owner&rsquo;s
+          expense, to determine whether it has any disease communicable to humans.</p>
+        <p><b>Home quarantine may be allowed</b>, as determined by and at the discretion of the
+          Animal Control Officer or a Peace Officer. It is discretionary; no appeal route is
+          written into the section.</p>
+        <p class="orig">Ord. 242 &sect; 10 &middot; 1951; Ord. 879 &sect; 1 &middot; 6 May 2025, eff. 17 May 2025</p>
+      </div></div>
+    </div>
+  </section>
+
+  <section id="impound">
+    <h2>7 &middot; Impoundment and disposition</h2>
+    <div class="group">
+      <div class="glabel">Two overlapping routes, two different clocks</div>
+      <div class="stat"><span class="sec">4-1-3</span><div>
+        <h3>Picked up for running at large</h3>
+        <p>It is the duty of every police officer to apprehend and impound a dog found running
+          at large. Nothing is released until the owner pays the City Treasurer
+          <span class="num">$50.00</span>, and in addition reimburses the city for the
+          veterinarian&rsquo;s daily impoundment charge.</p>
+        <p class="orig">Ord. 327 &sect; 3 &middot; 1962; 363 &middot; 1970; 414; 500 &middot; 1980; 675 &middot; 1995</p>
+      </div></div>
+      <div class="stat"><span class="sec">4-1-4</span><div>
+        <h3>Unredeemed after three days</h3>
+        <p>Any impounded dog not redeemed within <span class="num">three days</span> of the date
+          of impoundment is destroyed or otherwise appropriately disposed of by the city.</p>
+        <p class="orig">Ord. 497 &middot; 1980; Ord. 675 &sect; 4 &middot; 1995</p>
+      </div></div>
+      <div class="stat"><span class="sec">4-24</span><div>
+        <h3>Picked up without tags</h3>
+        <p>A dog without proper licence and vaccination tags is captured and impounded, kept
+          <span class="num">at least three days</span> exclusive of the day of capture, and if
+          not claimed and licensed, then &ldquo;exterminated or destroyed and their bodies buried
+          beyond the City limits.&rdquo;</p>
+        <p class="orig">Ord. 242 &sect; 8 &middot; 5 Apr 1951</p>
+      </div></div>
+    </div>
+  </section>
+
+  <section id="enforce">
+    <h2>8 &middot; Enforcement and penalties</h2>
+    <div class="group">
+      <div class="glabel">Powers, obstruction, and what a violation costs</div>
+      <div class="stat"><span class="sec">4-7-4</span><div>
+        <h3>Chemical immobilization</h3>
+        <p>The Chief of Police or his designees may use chemicals to immobilize an animal at
+          large in the city, or one deemed a danger to itself or the community. Officers must be
+          trained by, and administer under the direction of, a consulting veterinarian.</p>
+        <p class="orig">Ord. 556 &sect; 3 &middot; 1984</p>
+      </div></div>
+      <div class="stat"><span class="sec">4-6</span><div>
+        <h3>Obstructing the officer</h3>
+        <p>Unlawful to hinder, obstruct or delay the Chief of Police or his assistants in taking
+          any animal into custody.</p>
+        <p class="orig">Ord. 23 &sect; 5 &middot; 1915</p>
+      </div></div>
+      <div class="stat"><span class="sec">4-7</span><div>
+        <h3>Releasing an impounded animal</h3>
+        <p>Unlawful to break open, or to aid directly or indirectly in breaking open, any pen or
+          enclosure with intent to release an animal confined under this article.</p>
+        <p class="orig">Ord. 23 &sect; 6 &middot; 1915</p>
+      </div></div>
+      <div class="stat"><span class="sec">4-7-5</span><div>
+        <h3>Penalty</h3>
+        <p>Any violation of the article is a misdemeanor, punished as provided in Sec. 1-7.</p>
+        <p class="orig">Ord. 556 &sect; 4 &middot; 1984</p>
+      </div></div>
+      <div class="stat"><span class="sec">1-7</span><div>
+        <h3>The general penalty, in full</h3>
+        <p>Where no specific penalty is provided, a violation is a misdemeanor punishable by a
+          fine of <b>not more than <span class="num">$750.00</span></b>, plus court costs not
+          exceeding <span class="num">$10.00</span>. <b>Each day a violation continues is a
+          separate offence.</b></p>
+        <p>This is the only provision outside Chapter 4 that dog owners are routinely subject
+          to, and the daily-offence rule is what makes an unabated nuisance expensive.</p>
+        <p class="orig">Ord. 390 &middot; 1974, through Ord. 862 &middot; 2022 &mdash; state ref. W.S. &sect;&sect; 5-133, 15-24, 6-2, 6-5</p>
+      </div></div>
+    </div>
+  </section>
+
+  <section id="dead">
+    <h2>9 &middot; Repealed and reserved</h2>
+    <div class="group">
+      <div class="glabel">Empty slots, listed so they are not mistaken for missing law</div>
+      <div class="stat dead"><span class="sec">4-5</span><div>
+        <h3>Reserved</h3><p class="orig">Ord. 452 &middot; 1978</p></div></div>
+      <div class="stat dead"><span class="sec">4-13 &middot; 4-14</span><div>
+        <h3>Reserved</h3><p class="orig">Ord. 675 &sect;&sect; 7, 8 &middot; 1995</p></div></div>
+      <div class="stat dead"><span class="sec">4-16</span><div>
+        <h3>Reserved</h3><p class="orig">Ord. 675 &middot; 1995</p></div></div>
+      <div class="stat dead"><span class="sec">4-18</span><div>
+        <h3>Licence required &mdash; repealed</h3>
+        <p>The old dog-licensing section. Its content moved to 4-26 when Article IV was created;
+          the empty heading was left in place.</p>
+        <p class="orig">Repealed by Ord. 809 &middot; 2013, eff. 1 Sept 2013</p></div></div>
+      <div class="stat dead"><span class="sec">4-19 &ndash; 4-23</span><div>
+        <h3>Reserved</h3><p class="orig">Repealed by Ord. 750 &sect; 7 &middot; 2003</p></div></div>
+      <div class="stat dead"><span class="sec">4-27 &ndash; 4-29</span><div>
+        <h3>Reserved</h3><p class="orig">&mdash;</p></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Conflicts and silences</h2>
+    <div class="conf">
+      <div class="row"><span class="mark">&#8225;</span><p><b>&ldquo;At large&rdquo; is defined twice,
+        differently.</b> Sec. 4-1 says not under &ldquo;immediate control,&rdquo; scoped to that section;
+        4-1-1 says not under control &ldquo;by leash, cord, chain or otherwise,&rdquo; scoped to the whole
+        article. A dog under firm voice control fails one test and arguably passes the other &mdash;
+        and that word triggers impoundment, the $50 fee and a three-day clock.</p></div>
+      <div class="row"><span class="mark">&#8225;</span><p><b>Two impoundment routes disagree on
+        the count.</b> Sec. 4-1-4 gives three days from the date of impoundment; 4-24 gives three
+        days <em>exclusive of the day of capture</em>, and directs burial beyond the city limits.
+        Same dog, same pound, two clocks.</p></div>
+      <div class="row"><span class="mark">&#8225;</span><p><b>The bite section has no appeal.</b>
+        If home quarantine is refused, 4-25 provides no route to contest it &mdash; while the chicken
+        permits at 4-30 set out a full written appeal to the City Council with deadlines.</p></div>
+      <div class="row"><span class="mark">&#8225;</span><p><b>Cats fell out of step in 2025.</b>
+        Ordinance 879 improved the dog bite section and left the identically-derived cat
+        provision, 4-12, in its bare 1951 form.</p></div>
+      <div class="row"><span class="mark">&#8225;</span><p><b>No reporting duty is stated.</b>
+        Nothing in the chapter says who must report a bite, to whom, or within what time.</p></div>
+      <div class="row"><span class="mark">&#8225;</span><p><b>Parks are uncodified.</b> The city
+        has parks but the code has no chapter for them, so park rules live outside the law
+        entirely &mdash; and no ordinance mechanism exists by which an off-leash area could be
+        created.</p></div>
+    </div>
+  </section>
+
+  <footer>
+    <p>A plain-language consolidation of municipal code, not legal advice. Section numbers and
+      adopting ordinances are given throughout so every entry can be checked against the code as
+      published. Municode can lag council action &mdash; confirm anything load-bearing with the
+      Worland City Clerk.</p>
+    <p>Source: Municode Library, City of Worland Code of Ordinances &mdash; Chapter 4, Animals and
+      Fowl; Chapter 1, Sec. 1-7; and Ordinance No. 879 as adopted. All twenty-five chapters
+      checked for dog provisions. Prepared 22 August 2026; parks entry and the organisation
+      section added 23 August 2026.</p>
+  </footer>
+
+</div>

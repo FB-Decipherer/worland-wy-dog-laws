@@ -46,6 +46,14 @@ a:hover{text-decoration:none}
 /* ---- masthead + nav ---- */
 .masthead{border-bottom:1px solid var(--rule); background:var(--panel)}
 .masthead .wrap{padding-top:1.5rem; padding-bottom:1.1rem}
+.masthead .wrap{display:flex; gap:1.6rem; align-items:flex-start; flex-wrap:wrap}
+.masthead-text{flex:1 1 24rem; min-width:0}
+a.masthead-img{
+  flex:0 0 auto; width:clamp(15rem,27vw,22rem); display:block; line-height:0;
+  border:1px solid var(--rule); border-radius:.5rem; overflow:hidden; align-self:center
+}
+a.masthead-img img{width:100%; height:auto; display:block}
+a.masthead-img:hover,a.masthead-img:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
 .eyebrow{
   font:600 .74rem/1.2 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
   letter-spacing:.16em; text-transform:uppercase; color:var(--accent); margin:0 0 .5rem
@@ -194,6 +202,7 @@ footer.site p{margin:0 0 .5rem; max-width:70ch}
 
 @media (max-width:640px){
   body{font-size:1.02rem}
+  a.masthead-img{width:100%; margin-top:.4rem}
   .wrap{padding:0 .95rem}
   ul.sections a.sec{flex-direction:column; gap:.15rem}
   ul.sections .num{flex:none}
@@ -207,7 +216,8 @@ footer.site p{margin:0 0 .5rem; max-width:70ch}
     --rule:#ccc; --rule-strong:#999; --accent:#333; --accent-soft:#f0f0f0;
     --link:#000; --flag:#333; --flag-soft:#f0f0f0; --ok:#333; --ok-soft:#f4f4f4;
   }
-  nav.pages,button.pdf,button.theme,.backlink,.noprint{display:none !important}
+  nav.pages,button.pdf,button.theme,.backlink,.noprint,a.masthead-img{display:none !important}
+  .masthead .wrap{display:block}
   body{background:#fff; color:#000; font-size:11pt}
   .wrap{max-width:none; padding:0}
   .faq{border:none; page-break-inside:avoid; margin-bottom:.5rem}
@@ -233,9 +243,16 @@ footer.site p{margin:0 0 .5rem; max-width:70ch}
 <body>
 <header class="masthead">
   <div class="wrap">
-    <p class="eyebrow">City of Worland, Wyoming &middot; Unofficial plain-language edition</p>
-    <h1>The ordinance text, in full</h1>
-    <p class="standfirst">Every section cited on the index page, reproduced in full and in code order, with the ordinance history that appears in the official code.</p>
+    <div class="masthead-text">
+      <p class="eyebrow">City of Worland, Wyoming &middot; Unofficial plain-language edition</p>
+      <h1>The ordinance text, in full</h1>
+      <p class="standfirst">Every section cited on the index page, reproduced in full and in code order, with the ordinance history that appears in the official code.</p>
+    </div>
+    <a class="masthead-img" href="header.jpg" target="_blank" rel="noopener"
+       title="Open the full-size photograph">
+      <img src="header.jpg" width="1564" height="895" loading="eager" decoding="async"
+           alt="Snow-covered mountains rising beyond rolling green plains, with a two-lane highway and a few vehicles in the foreground, near Worland, Wyoming.">
+    </a>
   </div>
 </header>
 <nav class="pages" aria-label="Site pages">

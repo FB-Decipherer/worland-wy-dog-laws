@@ -46,6 +46,14 @@ a:hover{text-decoration:none}
 /* ---- masthead + nav ---- */
 .masthead{border-bottom:1px solid var(--rule); background:var(--panel)}
 .masthead .wrap{padding-top:1.5rem; padding-bottom:1.1rem}
+.masthead .wrap{display:flex; gap:1.6rem; align-items:flex-start; flex-wrap:wrap}
+.masthead-text{flex:1 1 24rem; min-width:0}
+a.masthead-img{
+  flex:0 0 auto; width:clamp(15rem,27vw,22rem); display:block; line-height:0;
+  border:1px solid var(--rule); border-radius:.5rem; overflow:hidden; align-self:center
+}
+a.masthead-img img{width:100%; height:auto; display:block}
+a.masthead-img:hover,a.masthead-img:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
 .eyebrow{
   font:600 .74rem/1.2 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
   letter-spacing:.16em; text-transform:uppercase; color:var(--accent); margin:0 0 .5rem
@@ -194,6 +202,7 @@ footer.site p{margin:0 0 .5rem; max-width:70ch}
 
 @media (max-width:640px){
   body{font-size:1.02rem}
+  a.masthead-img{width:100%; margin-top:.4rem}
   .wrap{padding:0 .95rem}
   ul.sections a.sec{flex-direction:column; gap:.15rem}
   ul.sections .num{flex:none}
@@ -207,7 +216,8 @@ footer.site p{margin:0 0 .5rem; max-width:70ch}
     --rule:#ccc; --rule-strong:#999; --accent:#333; --accent-soft:#f0f0f0;
     --link:#000; --flag:#333; --flag-soft:#f0f0f0; --ok:#333; --ok-soft:#f4f4f4;
   }
-  nav.pages,button.pdf,button.theme,.backlink,.noprint{display:none !important}
+  nav.pages,button.pdf,button.theme,.backlink,.noprint,a.masthead-img{display:none !important}
+  .masthead .wrap{display:block}
   body{background:#fff; color:#000; font-size:11pt}
   .wrap{max-width:none; padding:0}
   .faq{border:none; page-break-inside:avoid; margin-bottom:.5rem}
@@ -233,9 +243,16 @@ footer.site p{margin:0 0 .5rem; max-width:70ch}
 <body>
 <header class="masthead">
   <div class="wrap">
-    <p class="eyebrow">City of Worland, Wyoming &middot; Unofficial plain-language edition</p>
-    <h1>Audit: structure and usability</h1>
-    <p class="standfirst">What a resident runs into when they try to answer a simple question about their dog using the City’s official code website — and what in the code itself makes that hard.</p>
+    <div class="masthead-text">
+      <p class="eyebrow">City of Worland, Wyoming &middot; Unofficial plain-language edition</p>
+      <h1>Audit: structure and usability</h1>
+      <p class="standfirst">What a resident runs into when they try to answer a simple question about their dog using the City’s official code website — and what in the code itself makes that hard.</p>
+    </div>
+    <a class="masthead-img" href="header.jpg" target="_blank" rel="noopener"
+       title="Open the full-size photograph">
+      <img src="header.jpg" width="1564" height="895" loading="eager" decoding="async"
+           alt="Snow-covered mountains rising beyond rolling green plains, with a two-lane highway and a few vehicles in the foreground, near Worland, Wyoming.">
+    </a>
   </div>
 </header>
 <nav class="pages" aria-label="Site pages">
@@ -274,18 +291,21 @@ redesign, and several of them are the reason the website is hard to use.</p>
   parks except one: a confinement sentence enacted in 1962 (Sec. 4-1-2), a waste rule from 1998 (Sec. 4-3), and a
   nuisance list from 1984 (Sec. 4-7-2). That is already a demanding piece of legal reading. What makes it
   insurmountable is where it has to be done.</p>
-  <p class="evidence"><strong>A check on the ground in August 2026 found no posted rules of any kind at
-  Worland&rsquo;s city parks</strong> &mdash; nothing at the entrances, nothing on the noticeboards, nothing on the
-  grounds. The City&rsquo;s own parks page publishes no rules either: it carries a telephone number for shelter
-  reservations, and no hours, conduct rules, or pet policy. The City states it maintains ten parks.</p>
+  <p class="evidence"><strong>A check on the ground in August 2026 found no sign about dogs at any Worland city
+  park</strong> &mdash; nothing about leads, nothing about cleaning up, nothing about how to report a loose dog or
+  a bite. This is not because park signage is impossible: at least one park carries a sign giving its opening and
+  closing hours. The City has installed signs in parks. It has never used one to state a rule about dogs. The
+  City&rsquo;s own parks page publishes no rules either &mdash; a telephone number for shelter reservations, and no
+  hours, conduct rules or pet policy. The City states it maintains ten parks.</p>
   <p>Set those three facts side by side. A resident in a park with a dog can consult the Code and find no parks
   chapter; look for a sign and find none; check the City website and find a reservation line. Three places to look,
   and the answer in none of them. The ordinance binds them regardless &mdash; not knowing the law has never been a
   defence &mdash; so the effect is a duty that is enforceable but not discoverable at the moment and place it
   applies.</p>
-  <p>This is not an expensive problem. A sign at each park costs less than a single contested citation and needs no
-  ordinance amendment whatsoever. By contrast the airport &mdash; a far less-visited piece of public land &mdash;
-  has its own express pet provision, written in 1978 and amended in 2001.</p>
+  <p>This is not an expensive problem, and the City has already solved the harder half of it. The posts, the
+  mountings and the procurement route all exist &mdash; an hours sign is standing in a park right now. What is
+  missing is six lines of text on one of them. By contrast the airport &mdash; a far less-visited piece of public
+  land &mdash; has had its own express pet provision since 1978.</p>
 </div>
 
 <div class="finding">
@@ -654,6 +674,11 @@ means it was produced, and how long it took &mdash; and can judge the result aga
   code was read by driving a real browser and taking the rendered text. Source consulted: the Worland Code of
   Ordinances, site version dated 27 October 2025, read on 25 August 2026, together with whole-code searches for
   <em>dog</em>, <em>animal</em>, <em>park</em> and <em>barking</em> and the chapter facet listing.</p>
+  <p>These pages were compiled with the help of an AI assistant (Claude, made by Anthropic), used to read and
+  organise a large and badly structured body of ordinance text. That is disclosed here for the same reason the
+  timings and the untested items are: a document that criticises another for being hard to check should be easy to
+  check itself. Every ordinance citation was verified against the City&rsquo;s own published code, and the parks
+  were visited in person.</p>
   <p>Before delivery: all 77 internal links and anchors were resolved (none broken); the three pages were rendered
   at 390&nbsp;pixels and 1200&nbsp;pixels wide and confirmed to produce no horizontal scrolling at either size; and
   each page was printed to PDF to confirm the print stylesheet suppresses navigation and expands every collapsed

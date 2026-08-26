@@ -185,6 +185,15 @@ figcaption,.caption{
 }
 .notice strong{color:var(--ink)}
 
+.startbox{border:2px solid var(--accent); border-radius:.6rem; background:var(--accent-soft);
+  padding:1.1rem 1.3rem 1.2rem; margin:0 0 2.2rem}
+.startbox h2.sb{margin:0 0 .7rem; padding:0; border:0; font-size:clamp(1.1rem,2.6vw,1.35rem); color:var(--accent)}
+.startbox ol{margin:0; padding-left:1.4rem}
+.startbox li{margin:0 0 .7rem; line-height:1.55}
+.startbox li:last-child{margin-bottom:0}
+.startbox a{font:600 .88rem/1 ui-sans-serif,system-ui,sans-serif; white-space:nowrap; text-decoration:none;
+  border-bottom:1px solid currentColor}
+
 /* ---- provenance ---- */
 .prov{border:1px solid var(--rule); border-left:4px solid var(--rule-strong); border-radius:.5rem;
   background:var(--panel); padding:1.1rem 1.25rem; margin:0 0 1.2rem}
@@ -230,6 +239,7 @@ footer.site p{margin:0 0 .5rem; max-width:70ch}
   .tablewrap{overflow:visible; page-break-inside:avoid; border:1px solid #bbb}
   table{min-width:0; width:100%}
   .notice{page-break-inside:avoid}
+  .startbox{page-break-inside:avoid; border:2px solid #666; background:#f4f4f4}
   .prov{page-break-inside:auto; border:1px solid #bbb; background:#fff}
   blockquote.prompt{background:#f4f4f4; border-left:3px solid #999; font-size:9.5pt}
   a{color:#000; text-decoration:none}

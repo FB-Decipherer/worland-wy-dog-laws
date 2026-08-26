@@ -267,21 +267,14 @@ footer.site p{margin:0 0 .5rem; max-width:70ch}
 </nav>
 <main>
   <div class="wrap">
-<div class="notice">
-  <strong>Scope and method.</strong> On 25 August 2026 the City of Worland Code of Ordinances was read in full at
-  <a href="https://library.municode.com/wy/worland/codes/code_of_ordinances">library.municode.com/wy/worland</a>
-  (site version dated 27 October 2025), together with keyword searches for <em>dog</em>, <em>animal</em>,
-  <em>park</em>, <em>barking</em> and the chapter facet listing. The text had to be captured by driving a live
-  browser, for the reason set out at U11. Findings below are drawn from what the site
-  actually returned. Three things were <em>not</em> tested and are not claimed: assistive-technology behaviour with
-  a screen reader, and the output of the site&rsquo;s own DOCX and PDF download buttons. The absence of posted rules
-  in the parks was checked on the ground in August 2026 and is reported as a finding rather than an unknown. Where a conclusion rests on inference rather than observation, it
-  says so.
-</div>
+
 
 <h2>Part one &mdash; structure of the ordinances</h2>
 <p class="lede">These are inconsistencies in the law as codified, not in the website. They would survive any
 redesign, and several of them are the reason the website is hard to use.</p>
+<p class="caption" style="font-size:1rem; margin-bottom:1.6rem">Every finding below can be checked against the
+City&rsquo;s published code. How this report was made, what was read, and the three things that were not tested
+are set out under <a href="#provenance">Provenance</a> at the end.</p>
 
 <div class="finding">
   <h3><span class="tag">S1</span> There is no parks chapter, no sign, and no web page. The rule exists nowhere a resident can reach it.</h3>
@@ -547,7 +540,7 @@ reader, no developer tools, no legal training.</p>
   separately&rdquo; runs through Sec. 4-7-5 to Sec. 1-7, and is nowhere set out.</p>
 </div>
 
-<div class="finding usability">
+<div class="finding usability" id="u11">
   <h3><span class="tag">U11</span> The law is not in the page. A program has to run before any of it appears.</h3>
   <p>Worland&rsquo;s ordinances are published through a system that delivers no ordinance text at all in the page
   itself. What arrives is an application; the words of the law appear only once a browser has run it. Ask the
@@ -669,7 +662,7 @@ reader, no developer tools, no legal training.</p>
 no chapter for parks and recreation &mdash; which is why the question &ldquo;can my dog go to the park?&rdquo; has
 nowhere in this list to live.</p>
 
-<h2>Provenance</h2>
+<h2 id="provenance">Provenance</h2>
 <p class="lede">Recorded here so that anyone reading this audit can see exactly what was asked for, by what
 means it was produced, and how long it took &mdash; and can judge the result against the request.</p>
 
@@ -700,10 +693,14 @@ means it was produced, and how long it took &mdash; and can judge the result aga
 
 <div class="prov">
   <h3>How it was made, and what was checked</h3>
-  <p>The Municode site is a JavaScript application: requesting its pages directly returns an empty shell, so the
-  code was read by driving a real browser and taking the rendered text. Source consulted: the Worland Code of
-  Ordinances, site version dated 27 October 2025, read on 25 August 2026, together with whole-code searches for
-  <em>dog</em>, <em>animal</em>, <em>park</em> and <em>barking</em> and the chapter facet listing.</p>
+  <p><strong>What was read, and how.</strong> The Worland Code of Ordinances as published on Municode, site
+  version dated 27 October 2025, read on 25 August 2026 &mdash; the whole of Chapter 4, together with Sec. 1-7,
+  Sec. 2-1 and Sec. 2A-22, plus whole-code searches for <em>dog</em> (17 results), <em>animal</em> (26),
+  <em>park</em> (57) and <em>barking</em> (3), and the chapter facet listing, which is how the absence of a parks
+  chapter was established. The parks themselves were visited in August 2026.</p>
+  <p>The code had to be read by driving a live browser and capturing the rendered text, because requesting the
+  pages directly returns a shell containing no ordinance text at all. That is not merely a note on method &mdash;
+  it is finding <a href="#u11">U11</a>.</p>
   <p>These pages were compiled with the help of an AI assistant (Claude, made by Anthropic), used to read and
   organise a large and badly structured body of ordinance text. That is disclosed here for the same reason the
   timings and the untested items are: a document that criticises another for being hard to check should be easy to

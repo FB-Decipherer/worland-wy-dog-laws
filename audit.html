@@ -271,7 +271,8 @@ footer.site p{margin:0 0 .5rem; max-width:70ch}
   <strong>Scope and method.</strong> On 25 August 2026 the City of Worland Code of Ordinances was read in full at
   <a href="https://library.municode.com/wy/worland/codes/code_of_ordinances">library.municode.com/wy/worland</a>
   (site version dated 27 October 2025), together with keyword searches for <em>dog</em>, <em>animal</em>,
-  <em>park</em>, <em>barking</em> and the chapter facet listing. Findings below are drawn from what the site
+  <em>park</em>, <em>barking</em> and the chapter facet listing. The text had to be captured by driving a live
+  browser, for the reason set out at U11. Findings below are drawn from what the site
   actually returned. Three things were <em>not</em> tested and are not claimed: assistive-technology behaviour with
   a screen reader, and the output of the site&rsquo;s own DOCX and PDF download buttons. The absence of posted rules
   in the parks was checked on the ground in August 2026 and is reported as a finding rather than an unknown. Where a conclusion rests on inference rather than observation, it
@@ -546,6 +547,27 @@ reader, no developer tools, no legal training.</p>
   separately&rdquo; runs through Sec. 4-7-5 to Sec. 1-7, and is nowhere set out.</p>
 </div>
 
+<div class="finding usability">
+  <h3><span class="tag">U11</span> The law is not in the page. A program has to run before any of it appears.</h3>
+  <p>Worland&rsquo;s ordinances are published through a system that delivers no ordinance text at all in the page
+  itself. What arrives is an application; the words of the law appear only once a browser has run it. Ask the
+  server for the page containing Sec. 4-25 and you receive a shell &mdash; site metadata, and no dog law.</p>
+  <p class="evidence">Verified repeatedly in preparing this report: every attempt to read the code by ordinary
+  retrieval returned a page containing none of it. The text on the <a href="ordinances.html">Ordinance Text</a>
+  page here had to be captured by driving a live browser, because there was no other way to obtain it. Compare
+  Cody, ninety miles away and roughly twice Worland&rsquo;s size, whose ordinances are published as plain web
+  pages that arrive complete and can simply be read: <a href="https://codelibrary.amlegal.com/codes/codywy/latest/overview">codelibrary.amlegal.com/codes/codywy</a>.</p>
+  <p>This is not a complaint about modernity. It has consequences for particular people. A reader on a slow rural
+  connection waits for an entire application to load before a single word of the law appears. Assistive technology
+  has a harder job with text assembled by a program than with text that is simply present. Saving a section,
+  printing it, or quoting it into a document all become awkward. And anyone building something useful on top of
+  the City&rsquo;s own published law &mdash; a summary, an index, a guide of the kind these pages are &mdash; must
+  first defeat the way it is delivered.</p>
+  <p>The City did not design this and could not reasonably have been expected to evaluate it. It bought a product.
+  But it is a choice, another vendor is making a different one a short drive up the road, and the difference is
+  visible to any resident who tries to use both.</p>
+</div>
+
 <h2>Part three &mdash; what would fix it</h2>
 <p class="lede">Ordered by benefit per unit of effort. The first three need no ordinance amendment at all.</p>
 
@@ -595,6 +617,14 @@ reader, no developer tools, no legal training.</p>
   Council vote and no legal drafting, and it closes the discoverability gap immediately. Then, separately, decide in
   the Code whether dogs are permitted, on lead, in which parks, and whether any area is off-lead, so that the sign
   has something behind it. S1.</p>
+</div>
+
+<div class="rec">
+  <h3>9. Ask the codifier what else is on offer &mdash; and what this costs.</h3>
+  <p>Before the next renewal, ask two questions: what the City pays for the present publishing arrangement, and
+  whether a version is available that delivers the text of the law in the page rather than assembling it with a
+  program. Other Wyoming municipalities are published in that plainer form. This costs nothing to ask and it is
+  the kind of question a council is entitled to put to a supplier. U11.</p>
 </div>
 
 <div class="rec">

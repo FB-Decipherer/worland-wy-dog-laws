@@ -174,6 +174,9 @@ th{font-weight:600; background:var(--accent-soft); color:var(--ink)}
 tr:last-child td{border-bottom:none}
 
 figure{margin:1.1rem 0 1.2rem; padding:0}
+figure.pair .shots{display:flex; gap:.7rem; flex-wrap:wrap}
+figure.pair .shots > a{flex:1 1 18rem; min-width:0}
+@media (max-width:640px){figure.pair .shots{gap:.55rem}}
 figure a{display:block; line-height:0; border:1px solid var(--rule); border-radius:.5rem; overflow:hidden}
 figure a:hover,figure a:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
 figure img{width:100%; height:auto; display:block}
@@ -246,6 +249,7 @@ footer.site p{margin:0 0 .5rem; max-width:70ch}
   .notice{page-break-inside:avoid}
   .startbox{page-break-inside:avoid; border:2px solid #666; background:#f4f4f4}
   figure{page-break-inside:avoid}
+  figure.pair .shots{display:flex; gap:4pt}
   figure a{border:1px solid #999}
   .prov{page-break-inside:auto; border:1px solid #bbb; background:#fff}
   blockquote.prompt{background:#f4f4f4; border-left:3px solid #999; font-size:9.5pt}

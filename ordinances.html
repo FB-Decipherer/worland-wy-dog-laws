@@ -270,6 +270,10 @@ footer.site p{margin:0 0 .5rem; max-width:70ch}
 <style>
 /* ---- site search (added) ---- */
 a{overflow-wrap:anywhere}
+.skiplink{position:absolute;left:-9999px;top:0;z-index:200;background:var(--accent);color:#fff;
+  padding:.55rem .9rem;border-radius:0 0 .3rem 0;font-weight:600;text-decoration:none}
+.skiplink:focus{left:0;outline:2px solid var(--ink);outline-offset:2px}
+@media print{.skiplink{display:none}}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 .searchwrap{position:relative; flex:0 1 17rem; min-width:8rem; display:flex}
 .searchwrap[hidden]{display:none}
@@ -300,6 +304,7 @@ a{overflow-wrap:anywhere}
 </style>
 </head>
 <body>
+<a class="skiplink" href="#main">Skip to the main content</a>
 <header class="masthead">
   <div class="wrap">
     <div class="masthead-text">
@@ -332,7 +337,7 @@ a{overflow-wrap:anywhere}
   </div>
 </nav>
 
-<main>
+<main id="main" tabindex="-1">
   <div class="wrap">
 <div class="notice">
   <strong>How to read this page.</strong> Sections appear in code order: Chapter 1, then Chapter 2A, then

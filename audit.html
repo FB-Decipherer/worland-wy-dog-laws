@@ -1000,7 +1000,13 @@ means it was produced, and how long it took &mdash; and can judge the result aga
     var el=document.getElementById(h);
     if(el&&el.tagName==="DETAILS"){el.open=true;el.scrollIntoView();}
   }
-  window.addEventListener("hashchange",openHash); openHash();
+  function closeAll(){
+    var h=location.hash.replace("#","");
+    [].forEach.call(document.querySelectorAll("details.faq"),function(d){ if(d.id!==h) d.open=false; });
+  }
+  window.addEventListener("hashchange",openHash);
+  window.addEventListener("pageshow",function(){ closeAll(); openHash(); });
+  closeAll(); openHash();
 })();
 </script>
 </body>

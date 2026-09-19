@@ -275,7 +275,7 @@ a{overflow-wrap:anywhere}
 .skiplink:focus{left:0;outline:2px solid var(--ink);outline-offset:2px}
 @media print{.skiplink{display:none}}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
-.searchwrap{position:relative; flex:0 1 17rem; min-width:8rem; display:flex}
+.searchwrap{position:relative; flex:0 1 13rem; min-width:8rem; display:flex}
 .searchwrap[hidden]{display:none}
 .searchwrap input{width:100%; box-sizing:border-box;
   font:400 .9rem/1 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
@@ -334,6 +334,7 @@ a{overflow-wrap:anywhere}
       <div id="searchStatus" class="sr-only" role="status" aria-live="polite"></div>
     </div>
     <button class="pdf theme" type="button" id="themeToggle" hidden>&#9790; Dark</button>
+    <button class="pdf" type="button" id="phoneview">Phone view</button>
     <button class="pdf" type="button" onclick="window.print()">Save this page as PDF</button>
   </div>
 </nav>
@@ -1023,5 +1024,6 @@ means it was produced, and how long it took &mdash; and can judge the result aga
   closeAll(); openHash();
 })();
 </script>
+<script src="phone-view.js" defer></script>
 </body>
 </html>

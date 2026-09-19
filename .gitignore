@@ -1,0 +1,6 @@
+# session continuity notes — never published
+claude/
+
+# macOS
+.DS_Store
+._*

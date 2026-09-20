@@ -5,6 +5,9 @@
    What shows in the frame is the page itself at that width: its own breakpoints decide the
    layout, exactly as on the device.
 
+   - DEVELOPER-ONLY (Walter, 19 Sep 2026): readers never see the button. It appears only when
+     the page address carries ?dev, and then stays on for the rest of that browser tab, page to
+     page; ?dev=0 turns it off again. Pages mark their own button hidden, so it never flashes.
    - Uses the page's own button with id="phoneview" if it has one; otherwise adds a small
      floating button at the bottom right.
    - Hidden on screens that are already phone-sized, inside the frame itself, and in print.
@@ -20,6 +23,29 @@
   if (framed) {
     var own = doc.getElementById('phoneview');
     if (own) own.hidden = true;
+    return;
+  }
+
+  // Developer-only: no ?dev in the address (and none earlier in this tab) means no button.
+  var dev;
+  try {
+    var q = new URLSearchParams(location.search);
+    if (q.has('dev')) {
+      dev = q.get('dev') !== '0';
+      if (dev) sessionStorage.setItem('tc-dev', '1'); else sessionStorage.removeItem('tc-dev');
+    } else {
+      dev = sessionStorage.getItem('tc-dev') === '1';
+    }
+  } catch (e) {
+    dev = /[?&]dev(?:=(?!0(?:&|$))[^&]*)?(?:&|$)/.test(location.search);
+  }
+  if (!dev) {
+    var hideStyle = doc.createElement('style');
+    hideStyle.id = 'pv-style';
+    hideStyle.textContent = '#phoneview[hidden]{display:none!important}';
+    (doc.head || root).appendChild(hideStyle);
+    var mine = doc.getElementById('phoneview');
+    if (mine) mine.hidden = true;
     return;
   }
 
@@ -74,6 +100,7 @@
     doc.body.appendChild(btn);
   }
   btn.type = 'button';
+  btn.hidden = false;
   btn.setAttribute('aria-haspopup', 'dialog');
   btn.title = 'See this page at phone and tablet widths';
 

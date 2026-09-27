@@ -1,0 +1,53 @@
+TWO DIFFERENT THINGS LIVE IN THIS REPOSITORY, AND THEY ARE LICENSED DIFFERENTLY.
+
+
+1. THE FORMAT AND THE CODE  —  MIT license, in full below.
+
+   The HTML structure, the stylesheets, the scripts, the build and quality-assurance
+   tooling, and the layout conventions of the Three Columns format. Take them, change
+   them, build sites with them, sell what you build. That is the whole point: the
+   method is published free so that the next site costs nobody anything.
+
+
+2. THE WRITTEN CONTENT  —  all rights reserved.
+
+   Copyright (c) 2026 Walter Wilkinson.
+
+   The prose, the answers, the source previews and the reasons they are cited, the
+   chronicles, the illustrations, the maps and the photographs on any page in this
+   repository. These are NOT covered by the MIT grant below.
+
+   Quoting a passage with attribution is fair use, and is welcome. Reproducing a
+   page's words wholesale is not, and needs permission.
+
+
+Why the split: a repository holds both a method and somebody's words. A single
+permissive license at its root gives away both, including — on a real subject's site —
+their price list, their insurance page and their own sentences, by a file nobody read.
+The boundary is written here so that it is decided rather than inherited.
+
+
+-------------------------------------------------------------------------------
+
+
+MIT License
+
+Copyright (c) 2026 Walter Wilkinson
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

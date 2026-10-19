@@ -1,4 +1,4 @@
-/* phone-view.js - a GYRO class feature, 19 September 2026.
+/* phone-view.js - a GYR-O class feature, 19 September 2026.
 
    A "Phone view" button opens this page inside a phone-sized frame, at the real CSS widths of
    common phones and a small tablet, so the phone layout can be checked from a desktop browser.

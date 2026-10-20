@@ -370,7 +370,7 @@ a{overflow-wrap:anywhere}
     </div>
     <button class="pdf theme" type="button" id="themeToggle" hidden>&#9790; Dark</button>
     <button class="pdf" type="button" id="phoneview" hidden>Phone view</button>
-    <button class="pdf" type="button" onclick="window.print()">Save this page as PDF</button>
+    <button class="pdf" type="button" onclick="gyroPdf('Worland-Dog-Laws-Ordinances.pdf')">Download this page as a PDF</button>
   </div>
 </nav>
 
@@ -790,8 +790,7 @@ a{overflow-wrap:anywhere}
     government edict. Layout, plain-language summaries, groupings and commentary on these pages are original to
     this edition. Source consulted: the City of Worland Code of Ordinances as displayed on Municode, version
     dated 27 October 2025. Pages last built 25 August 2026.</p>
-    <p>Every page here prints cleanly: use <em>Save this page as PDF</em> and choose &ldquo;Save as PDF&rdquo; as the
-    destination in your browser&rsquo;s print dialog.</p>
+    <p>Every page here comes as a ready-made PDF: use <em>Download this page as a PDF</em>. No print dialog is involved.</p>
   </div><br>
   <span class="gyro-key" style="display:inline-block;font-size:1.2em;margin:.4em 0">GYR-O&nbsp;=<span aria-hidden="true" style="display:inline-block;width:.8em;height:.8em;border-radius:2px;vertical-align:-.06em;margin:0 .3em 0 .55em;background:#4c7a4e;-webkit-print-color-adjust:exact;print-color-adjust:exact"></span><b>G</b>reen &middot;<span aria-hidden="true" style="display:inline-block;width:.8em;height:.8em;border-radius:2px;vertical-align:-.06em;margin:0 .3em 0 .55em;background:#c9a227;-webkit-print-color-adjust:exact;print-color-adjust:exact"></span><b>Y</b>ellow &middot;<span aria-hidden="true" style="display:inline-block;width:.8em;height:.8em;border-radius:2px;vertical-align:-.06em;margin:0 .3em 0 .55em;background:#b4372c;-webkit-print-color-adjust:exact;print-color-adjust:exact"></span><b>R</b>ed &middot; <span style="white-space:nowrap">and sometimes<span aria-hidden="true" style="display:inline-block;width:.8em;height:.8em;border-radius:2px;vertical-align:-.06em;margin:0 .3em 0 .55em;background:#d2691e;-webkit-print-color-adjust:exact;print-color-adjust:exact"></span><a href="https://gyro-sites.online/auto-gyro.html" title="How a GYR-O site is built" style="color:inherit;text-underline-offset:2px"><b>O</b>range</a></span> <span style="font-size:.85em">(verde, amarillo, rojo y a veces naranja)</span></span><br>
   &copy; 2026 Walter Wilkinson, creador del formato de sitios web GYR-O. La plantilla es de libre reutilizaci&oacute;n, bajo la licencia MIT. Detalles: <a href="https://gyro-sites.online/legal.html">licencia y derechos de autor</a>
@@ -972,5 +971,6 @@ a{overflow-wrap:anywhere}
 })();
 </script>
 <script src="phone-view.js" defer></script>
+<script>function gyroPdf(n){var a=document.createElement('a');a.href=n;a.download=n;document.body.appendChild(a);a.click();a.remove();}</script>
 </body>
 </html>
